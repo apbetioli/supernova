@@ -1,9 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\CarMovement.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Player.js">
     <Files>
-      <File FileName="Assets\CarMovement.js" Line="30" Column="14" />
-      <File FileName="Assets\BackgroundMovement.js" Line="14" Column="41" />
+      <File FileName="Assets\Background.js" Line="17" Column="18" />
+      <File FileName="Assets\Player.js" Line="34" Column="19" />
+      <File FileName="Assets\EnemySpawner.js" Line="7" Column="1" />
+      <File FileName="Assets\Enemy.js" Line="3" Column="1" />
+      <File FileName="Assets\ScoreController.js" Line="11" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
