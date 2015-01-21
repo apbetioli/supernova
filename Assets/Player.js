@@ -38,6 +38,10 @@ function ChangeRoadSideOrNot() {
 
 function OnTriggerEnter2D(col: Collider2D) {
 	Destroy(col.gameObject);
+	Die();
+}
+
+function Die() {
 	isDead = true;
 	animator.SetTrigger("Death");
 	Handheld.Vibrate();

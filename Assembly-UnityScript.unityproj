@@ -50,6 +50,7 @@
      <Compile Include="Assets\Enemy.js" />
      <Compile Include="Assets\EnemyDestroyerController.js" />
      <Compile Include="Assets\EnemySpawner.js" />
+     <Compile Include="Assets\EnergyController.js" />
      <Compile Include="Assets\Player.js" />
      <Compile Include="Assets\ScoreController.js" />
      <Compile Include="Assets\ScoreCounterController.js" />

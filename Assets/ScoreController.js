@@ -2,14 +2,18 @@
 
 var score = 0;
 var highscore = 0;
+var player : Player;
 
 function Start() {
 	highscore = PlayerPrefs.GetInt("highscore", 0);
+	player = GameObject.Find("Player").GetComponent(Player);
 }
 
 function Update () {
-	var scoreboard = guiText;
-	scoreboard.text = "Score : " + score + "\nTop : " + highscore;
+	guiText.text = "" + score;
+	if(player.isDead) {
+		guiText.text += "\nTop : " + highscore;
+	} 
 }
 
 function Add () {
