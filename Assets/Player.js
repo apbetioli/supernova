@@ -1,13 +1,15 @@
 ﻿#pragma strict
 
-var canMove = false;
 var isDead = false;
 var deathCooldown = 0.5;
 
-var scoreController : ScoreController;
+var animator : Animator;
 
 function Start () {
-	scoreController = GameObject.Find("Score").GetComponent(ScoreController);
+	animator = transform.GetComponentInChildren(Animator);
+	
+	if(animator == null)
+		Debug.LogError("Coudn't find the animator");
 }
 function Update () { 
 	if(isDead) {
@@ -16,14 +18,8 @@ function Update () {
 			Application.LoadLevel(Application.loadedLevel);
 		}
 	} else {
-		canMove = CanMove();
-	}
-}
-
-function FixedUpdate() {
-	if(canMove) {
-		canMove = false;
-		ChangeRoadSideOrNot();
+		if(CanMove())
+			ChangeRoadSideOrNot();
 	}
 }
 
@@ -38,12 +34,11 @@ function ChangeRoadSideOrNot() {
 	var playerSide = transform.position.x > 0 ? 1 : -1;
 		
 	transform.position.x *= newSide * playerSide;
-	
-	scoreController.Add();
 }
 
 function OnTriggerEnter2D(col: Collider2D) {
-	isDead = true;
-	Debug.Log("Game Over");
 	Destroy(col.gameObject);
+	isDead = true;
+	animator.SetTrigger("Death");
+	Handheld.Vibrate();
 }

@@ -16,12 +16,3 @@ function Update () {
 function Move() {
 	transform.position.y -= step;
 }
-
-function OnTriggerEnter2D(col : Collider2D) {
-	if (col.gameObject.tag == "Player") {
-		Debug.Log("Collided with player");
-		
-	} else if (col.gameObject.tag == "Finish") {
-		Destroy(gameObject);
-	}
-}

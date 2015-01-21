@@ -2,14 +2,14 @@
 
 var score = 0;
 var highscore = 0;
-var scoreboard: UI.Text;
 
 function Start() {
 	highscore = PlayerPrefs.GetInt("highscore", 0);
 }
 
 function Update () {
-	scoreboard.text = "Score: " + score + "\nTop: " + highscore;
+	var scoreboard = guiText;
+	scoreboard.text = "Score : " + score + "\nTop : " + highscore;
 }
 
 function Add () {

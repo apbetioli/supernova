@@ -1,6 +1,6 @@
 ﻿#pragma strict
 
-var velocity : float = 12;
+var velocity : float = 10;
 
 var player : Player;
 
