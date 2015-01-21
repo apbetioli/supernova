@@ -1,7 +1,7 @@
 ﻿#pragma strict
 
 var enemies : GameObject[];
-var wait = 0;
+var turnsToWait = 0;
 
 var player : Player;
 
@@ -16,22 +16,22 @@ function Update () {
 }
 
 function Spawn() {
-	if(wait > 0) {
-		wait--;
+	if(turnsToWait > 0) {
+		turnsToWait--;
 		return;
 	}
-
-	var enemyIndex = Random.Range(0, enemies.Length);
 	
 	var position = transform.position;
+	
 	var rand = Random.Range(-10, 9);
+	var side = rand >= 0 ? 1 : -1;
 	
-	var offset = rand >= 0 ? 1 : -1;
-	position.x += offset;
+	position.x += side;
 	
+	var enemyIndex = Random.Range(0, enemies.Length);
 	var enemy = Instantiate(enemies[enemyIndex], position, transform.rotation);
 	
-	wait = Random.Range(1, 2);
+	turnsToWait = Random.Range(1, 2);
 	
 	return enemy;
 }

@@ -2,9 +2,9 @@
 
 var level = 1;
 var player : Player;
-var originalScale = 0.7875;
-var minusFactor = 0.5;
-var plusFactor = 1.5;
+var originalScale : float = 0.7875;
+var minusFactor : float = 0.1;
+var plusFactor : float = 1.0;
 
 function Start () {
 	player = GameObject.Find("Player").GetComponent(Player);
