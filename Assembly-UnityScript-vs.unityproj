@@ -46,14 +46,14 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Background.js" />
-     <Compile Include="Assets\Enemy.js" />
-     <Compile Include="Assets\EnemyDestroyerController.js" />
-     <Compile Include="Assets\EnemySpawner.js" />
-     <Compile Include="Assets\EnergyController.js" />
-     <Compile Include="Assets\Player.js" />
-     <Compile Include="Assets\ScoreController.js" />
-     <Compile Include="Assets\ScoreCounterController.js" />
+     <Compile Include="Assets\Scripts\Background.js" />
+     <Compile Include="Assets\Scripts\Enemy.js" />
+     <Compile Include="Assets\Scripts\EnemyDestroyerController.js" />
+     <Compile Include="Assets\Scripts\EnemySpawner.js" />
+     <Compile Include="Assets\Scripts\EnergyController.js" />
+     <Compile Include="Assets\Scripts\Player.js" />
+     <Compile Include="Assets\Scripts\ScoreController.js" />
+     <Compile Include="Assets\Scripts\ScoreCounterController.js" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
