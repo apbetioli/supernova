@@ -1,15 +1,13 @@
 ﻿#pragma strict
 
-var isDead = false;
-var deathCooldown = 0.5;
-
 var animator : Animator;
+var isDead = false;
+var deathCooldown : float = 0.5;
 
 function Start () {
 	animator = transform.GetComponentInChildren(Animator);
-	
 	if(animator == null)
-		Debug.LogError("Coudn't find the animator");
+		Debug.LogError("Could not find the animator");
 }
 function Update () { 
 	if(isDead) {
@@ -37,8 +35,10 @@ function ChangeRoadSideOrNot() {
 }
 
 function OnTriggerEnter2D(col: Collider2D) {
-	Destroy(col.gameObject);
-	Die();
+	if(!isDead) {
+		Destroy(col.gameObject);
+		Die();
+	}
 }
 
 function Die() {

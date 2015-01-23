@@ -8,6 +8,9 @@ var plusFactor : float = 1.0;
 
 function Start () {
 	player = GameObject.Find("Player").GetComponent(Player);
+	if(player == null) 
+		Debug.LogError("Could not find the Player");
+		
 	originalScale = transform.localScale.x;
 }
 

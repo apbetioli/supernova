@@ -1,12 +1,14 @@
 ﻿#pragma strict
 
 var enemies : GameObject[];
-var turnsToWait = 0;
+var turnsToWait : int = 0;
 
 var player : Player;
 
 function Start () {
 	player = GameObject.Find("Player").GetComponent(Player);
+	if(player == null) 
+		Debug.LogError("Could not find the Player");
 }
 
 function Update () {
@@ -29,9 +31,7 @@ function Spawn() {
 	position.x += side;
 	
 	var enemyIndex = Random.Range(0, enemies.Length);
-	var enemy = Instantiate(enemies[enemyIndex], position, transform.rotation);
+	Instantiate(enemies[enemyIndex], position, transform.rotation);
 	
-	turnsToWait = Random.Range(1, 2);
-	
-	return enemy;
+	turnsToWait = Random.Range(1, 3);
 }

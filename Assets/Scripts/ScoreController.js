@@ -5,8 +5,11 @@ var highscore = 0;
 var player : Player;
 
 function Start() {
-	highscore = PlayerPrefs.GetInt("highscore", 0);
 	player = GameObject.Find("Player").GetComponent(Player);
+	if(player == null) 
+		Debug.LogError("Could not find the Player");
+		
+	highscore = PlayerPrefs.GetInt("highscore", 0);
 }
 
 function Update () {
