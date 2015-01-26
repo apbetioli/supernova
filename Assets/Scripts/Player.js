@@ -2,23 +2,10 @@
 
 var animator : Animator;
 var isDead = false;
-var deathCooldown : float = 0.5;
 
-function Start () {
-	animator = transform.GetComponentInChildren(Animator);
-	if(animator == null)
-		Debug.LogError("Could not find the animator");
-}
-function Update () { 
-	if(isDead) {
-		deathCooldown -= Time.deltaTime;
-		if(deathCooldown < 0 && Input.GetMouseButtonDown(0)) {
-			Application.LoadLevel(Application.loadedLevel);
-		}
-	} else {
-		if(CanMove())
-			ChangeRoadSideOrNot();
-	}
+function Update () {
+	if(CanMove())
+		ChangeRoadSideOrNot();
 }
 
 function CanMove() {

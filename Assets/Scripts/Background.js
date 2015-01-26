@@ -1,22 +1,17 @@
 ﻿#pragma strict
 
 var player : Player;
-var totalOffset : float = 10;
-var step : float = 0.5;
-var counter : float = 0;
+var totalOffset : float;
+var step : float;
+var counter : float;
 var materials : Material[];
 
 function Start () {
 	var meshRenderer : MeshRenderer = GetComponent(MeshRenderer);
 	meshRenderer.material = materials[Random.Range(0, materials.Length)];
-
-	player = GameObject.Find("Player").GetComponent(Player);
-	if(player == null) 
-		Debug.LogError("Could not find the Player");
 }
 
 function Update () {
-	
 	if( counter > 0 ) {
 		RollBackground();
 		counter -= step;
@@ -25,7 +20,6 @@ function Update () {
 			counter = totalOffset;
 		}
 	}
-	
 }
 
 function RollBackground() {

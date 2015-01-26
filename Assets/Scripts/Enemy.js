@@ -1,10 +1,10 @@
 ﻿#pragma strict
 
 var player : Player;
-var totalOffset : int = 2;
-var step : float = 0.5;
-var counter : float = 0;
-var idleCounter : float = 0;
+var totalOffset : int;
+var step : float;
+var counter : float;
+var idleCounter : float;
 
 function Start () {
 	player = GameObject.Find("Player").GetComponent(Player);

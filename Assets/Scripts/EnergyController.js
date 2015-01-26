@@ -1,16 +1,12 @@
 ﻿#pragma strict
 
-var level = 1;
 var player : Player;
-var originalScale : float = 0.7875;
-var minusFactor : float = 0.1;
-var plusFactor : float = 1.0;
+var level : int;
+var originalScale : float;
+var minusFactor : float;
+var plusFactor : float;
 
-function Start () {
-	player = GameObject.Find("Player").GetComponent(Player);
-	if(player == null) 
-		Debug.LogError("Could not find the Player");
-		
+function Start () {		
 	originalScale = transform.localScale.x;
 }
 
