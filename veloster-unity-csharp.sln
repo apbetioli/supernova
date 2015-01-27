@@ -13,7 +13,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-						GlobalSection(MonoDevelopProperties) = preSolution
+								GlobalSection(MonoDevelopProperties) = preSolution
 		BaseDirectory = Assets\Scripts
 		StartupItem = Assembly-UnityScript.unityproj
 		Policies = $0
