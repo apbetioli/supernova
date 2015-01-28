@@ -4,6 +4,7 @@ var player : Player;
 var totalOffset : float;
 var step : float;
 var counter : float;
+var idleStep : float;
 var materials : Material[];
 
 function Start () {
@@ -13,21 +14,21 @@ function Start () {
 
 function Update () {
 	if( counter > 0 ) {
-		RollBackground();
+		RollBackground(step);
 		counter -= step;
 	} else {
 		if(player.CanMove()) {
 			counter = totalOffset;
 		}
+		if(player.isIdle()) {
+			RollBackground(idleStep * Time.deltaTime);
+		}
 	}
 }
 
-function RollBackground() {
-	if(player.isDead)
-		return;
-	
+function RollBackground(rollStep : float) {
 	var mat = renderer.material;
 	var offset = mat.mainTextureOffset;
-	offset.y += step * Time.deltaTime;
+	offset.y += rollStep * Time.deltaTime;
 	mat.mainTextureOffset = offset;
 }

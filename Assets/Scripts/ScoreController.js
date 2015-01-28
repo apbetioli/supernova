@@ -12,15 +12,12 @@ function Start() {
 
 function Update () {
 	scoreText.text = "" + score;
-	
-	if(player.isDead) {
-		gameOverScoreText.text = "Score : " + score + "\nBest : " + highscore;
-	} 
-	
+	gameOverScoreText.text = "Score : " + score + "\nBest : " + highscore;
 }
 
 function Add () {
-	score++;
+	if(!player.isDead)
+		score++;
 }
 
 function OnDestroy() {

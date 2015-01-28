@@ -1,8 +1,17 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ScoreController.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Background.js">
     <Files>
-      <File FileName="ScoreController.js" Line="1" Column="1" />
+      <File FileName="Background.js" Line="25" Column="3" />
+      <File FileName="CameraMovementController.js" Line="28" Column="37" />
+      <File FileName="Enemy.js" Line="18" Column="19" />
+      <File FileName="EnemyDestroyerController.js" Line="1" Column="1" />
+      <File FileName="EnemySpawner.js" Line="29" Column="3" />
+      <File FileName="GameOverController.js" Line="1" Column="1" />
+      <File FileName="MenuController.js" Line="1" Column="1" />
+      <File FileName="Player.js" Line="5" Column="1" />
+      <File FileName="ScoreController.js" Line="16" Column="1" />
+      <File FileName="ScoreCounterController.js" Line="6" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

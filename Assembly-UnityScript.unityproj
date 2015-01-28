@@ -47,10 +47,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Background.js" />
+     <Compile Include="Assets\Scripts\CameraMovementController.js" />
      <Compile Include="Assets\Scripts\Enemy.js" />
      <Compile Include="Assets\Scripts\EnemyDestroyerController.js" />
      <Compile Include="Assets\Scripts\EnemySpawner.js" />
-     <Compile Include="Assets\Scripts\EnergyController.js" />
      <Compile Include="Assets\Scripts\GameOverController.js" />
      <Compile Include="Assets\Scripts\MenuController.js" />
      <Compile Include="Assets\Scripts\Player.js" />

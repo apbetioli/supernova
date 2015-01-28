@@ -34,9 +34,6 @@ function Move() {
 }
 
 function IdleMove() {
-	if(player.isDead)
-		return;
-		
 	var idle = Time.deltaTime * step / 2;
 	idleCounter += idle;
 	transform.position.y -= Time.deltaTime * step;

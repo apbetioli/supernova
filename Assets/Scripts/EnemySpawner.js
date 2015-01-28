@@ -2,12 +2,23 @@
 
 var enemies : GameObject[];
 var turnsToWait : int = 0;
+var idleSpawnTime : float;
+var idleCounter :float;
 
 var player : Player;
 
 function Update () {
 	if(player.CanMove()) {
 		Spawn();
+	}
+
+	if(player.isDead) {
+		if(idleCounter >= idleSpawnTime) {
+			idleCounter = 0;
+			Spawn();
+		} else {
+			idleCounter += Time.deltaTime;
+		}
 	}
 }
 

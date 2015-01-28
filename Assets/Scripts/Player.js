@@ -4,7 +4,7 @@ var animator : Animator;
 var isDead = false;
 
 function Update () {
-	if(CanMove())
+	if(CanMove()) 
 		ChangeRoadSideOrNot();
 }
 
@@ -22,7 +22,8 @@ function ChangeRoadSideOrNot() {
 }
 
 function OnTriggerEnter2D(col: Collider2D) {
-	if(!isDead) {
+	Debug.Log(col.gameObject.name);
+	if(!isDead && col.gameObject.tag == "Enemy") {
 		Destroy(col.gameObject);
 		Die();
 	}
@@ -32,4 +33,8 @@ function Die() {
 	isDead = true;
 	animator.SetTrigger("Death");
 	Handheld.Vibrate();
+}
+
+function isIdle() {
+	return !Input.GetMouseButtonDown(0);
 }
