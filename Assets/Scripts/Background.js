@@ -1,4 +1,5 @@
-﻿#pragma strict
+﻿
+#pragma strict
 
 var player : Player;
 var totalOffset : float;
@@ -13,6 +14,9 @@ function Start () {
 }
 
 function Update () {
+	if(!player.running)
+		return;
+
 	if( counter > 0 ) {
 		RollBackground(step);
 		counter -= step;

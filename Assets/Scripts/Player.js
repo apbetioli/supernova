@@ -1,9 +1,16 @@
 ﻿#pragma strict
 
-var animator : Animator;
+var playerAnimator : Animator;
 var isDead = false;
+var running = false;
 
 function Update () {
+	if(!running) {
+		if(Input.GetMouseButtonDown(0))
+			running = true;
+		return;
+	}
+
 	if(CanMove()) 
 		ChangeRoadSideOrNot();
 }
@@ -31,7 +38,7 @@ function OnTriggerEnter2D(col: Collider2D) {
 
 function Die() {
 	isDead = true;
-	animator.SetTrigger("Death");
+	playerAnimator.SetTrigger("Death");
 	Handheld.Vibrate();
 }
 

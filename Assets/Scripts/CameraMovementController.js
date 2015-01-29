@@ -1,12 +1,13 @@
 ﻿#pragma strict
 
 var player : Player;
-var level : float;
+var level : int;
 var originalYPosition : float;
 var maxYPosition : float;
 var minusFactor : float;
 var plusFactor : float;
 var position : float;
+var score : ScoreController;
 
 function Start () {		
 	originalYPosition = transform.position.y;
@@ -14,8 +15,10 @@ function Start () {
 
 function Update () {
 
-	if(player.isDead)
+	if(player.isDead || !player.running)
 		return;
+		
+	level = (score.score / 100) + 2;
 	
 	var delta = Time.deltaTime * level;
 	
