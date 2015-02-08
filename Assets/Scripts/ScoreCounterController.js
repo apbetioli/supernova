@@ -1,7 +1,8 @@
 ﻿#pragma strict
 
-var scoreController : ScoreController;
+var player : PlayerController;
 
 function OnTriggerEnter2D(col : Collider2D) {
-	scoreController.Add();
+	if(col.tag == "Enemy")
+		player.AddScore();
 }

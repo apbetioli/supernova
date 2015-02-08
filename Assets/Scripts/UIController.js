@@ -1,12 +1,12 @@
 ﻿#pragma strict
 
+var player : PlayerController;
 var animator : Animator;
-var player : Player;
 
 function Update () {
 	if(player.isDead) 
 		animator.SetTrigger("GameOver");
-	if(player.running)
+	if(player.isRunning)
 		animator.SetTrigger("Start");
 }
 

@@ -46,13 +46,12 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Background.js" />
-     <Compile Include="Assets\Scripts\CameraMovementController.js" />
-     <Compile Include="Assets\Scripts\Enemy.js" />
-     <Compile Include="Assets\Scripts\EnemyDestroyerController.js" />
-     <Compile Include="Assets\Scripts\EnemySpawner.js" />
-     <Compile Include="Assets\Scripts\MenuController.js" />
-     <Compile Include="Assets\Scripts\Player.js" />
+     <Compile Include="Assets\Scripts\BackgroundController.js" />
+     <Compile Include="Assets\Scripts\GhostController.js" />
+     <Compile Include="Assets\Scripts\ObjectController.js" />
+     <Compile Include="Assets\Scripts\ObjectDestroyerController.js" />
+     <Compile Include="Assets\Scripts\ObjectSpawnerController.js" />
+     <Compile Include="Assets\Scripts\PlayerController.js" />
      <Compile Include="Assets\Scripts\ScoreController.js" />
      <Compile Include="Assets\Scripts\ScoreCounterController.js" />
      <Compile Include="Assets\Scripts\UIController.js" />

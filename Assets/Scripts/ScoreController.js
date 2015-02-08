@@ -1,29 +1,12 @@
 ﻿#pragma strict
 
-var score : int = 0;
-var highscore : int = 0;
-var player : Player;
+var player : PlayerController;
 var scoreText : UI.Text;
 var gameOverScoreText : UI.Text;
-
-function Start() {
-	highscore = PlayerPrefs.GetInt("highscore", 0);
-}
+var coinsText : UI.Text;
 
 function Update () {
-	scoreText.text = "" + score;
-	gameOverScoreText.text = "Score : " + score + "\nBest : " + highscore;
-}
-
-function Add () {
-	if(!player.isDead)
-		score++;
-}
-
-function OnDestroy() {
-	if(score > highscore) {
-		highscore = score;
-		PlayerPrefs.SetInt("highscore", score);
-	}
-	score = 0;
+	scoreText.text = "" + player.score;
+	coinsText.text = "" + player.coins;
+	gameOverScoreText.text = "Best : " + player.highscore;
 }
