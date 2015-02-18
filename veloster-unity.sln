@@ -1,6 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{90614A2A-2F56-37E1-9B0C-FBDE96ADA6D9}") = "veloster-unity", "Assembly-CSharp.csproj", "{03B66278-18AE-8F22-0774-1837A0B14F3D}"
+EndProject
 Project("{90614A2A-2F56-37E1-9B0C-FBDE96ADA6D9}") = "veloster-unity", "Assembly-UnityScript.unityproj", "{309CAC28-A237-142D-B1BF-4B3423E88F13}"
 EndProject
 Global
@@ -9,6 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03B66278-18AE-8F22-0774-1837A0B14F3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03B66278-18AE-8F22-0774-1837A0B14F3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03B66278-18AE-8F22-0774-1837A0B14F3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03B66278-18AE-8F22-0774-1837A0B14F3D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{309CAC28-A237-142D-B1BF-4B3423E88F13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{309CAC28-A237-142D-B1BF-4B3423E88F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{309CAC28-A237-142D-B1BF-4B3423E88F13}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -17,7 +23,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																											GlobalSection(MonoDevelopProperties) = preSolution
+																																																														GlobalSection(MonoDevelopProperties) = preSolution
 		BaseDirectory = Assets\Scripts
 		StartupItem = Assembly-UnityScript.unityproj
 		Policies = $0

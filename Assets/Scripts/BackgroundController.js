@@ -8,14 +8,12 @@ var counter : float;
 var idleStep : float;
 var materials : Material[];
 
-function Start () {
-	var meshRenderer : MeshRenderer = GetComponent(MeshRenderer);
-	meshRenderer.material = materials[Random.Range(0, materials.Length)];
-}
+//function Start () {
+	//var meshRenderer : MeshRenderer = GetComponent(MeshRenderer);
+	//meshRenderer.material = materials[Random.Range(0, materials.Length)];
+//}
 
 function Update () {
-	if(!player.isRunning)
-		return;
 		
 	RollBackground(idleStep * Time.deltaTime);
 	
@@ -34,5 +32,6 @@ function RollBackground(rollStep : float) {
 	var mat = renderer.material;
 	var offset = mat.mainTextureOffset;
 	offset.y += rollStep;
+	offset.y = offset.y % 1;
 	mat.mainTextureOffset = offset;
 }

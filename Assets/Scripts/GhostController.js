@@ -1,52 +1,39 @@
 ﻿#pragma strict
 
 var player : PlayerController;
-var originalYPosition : float;
+var minYPosition : float;
 var farFactor : float;
 var nearFactor : float;
-var distance : float = 5;
-
-function Start () {
-	player = GameObject.Find("Player").GetComponent(PlayerController);
-	if(player == null) 
-		Debug.LogError("Could not find the Player");
-	
-	originalYPosition = transform.position.y;
-}
+var sleep : float;
+var ghostAnimator : Animator;
 
 function Update () {
 	FollowPlayer();
 	MirrorEffect();
 
-	if(player.isDead || !player.isRunning)
+	if(player.isDead || !player.isRunning) 
 		return;
 		
-	if(player.CanMove()) {
-		ToFar();
+	if(sleep > 0) {
+		sleep -= Velocity();
+		transform.position.y -= farFactor * Velocity();
+		ghostAnimator.SetTrigger("Sleep");
 	} else {
-		ToNear();
+		sleep = 0;
+		transform.position.y += Velocity();
+		ghostAnimator.SetTrigger("Haunt");
 	}
+	
+	if(transform.position.y < minYPosition) {	
+		transform.position.y = minYPosition;
+		sleep = 0;
+	}
+	
 }
 
 function Velocity() {
-	return Time.deltaTime * player.Level();
-}
-
-function ToFar() {
-	var aux = farFactor;
-	
-	var target = transform.position.y - aux;
-	
-	if(target < originalYPosition)
-		target = originalYPosition;
-		
-	transform.position.y = target;
-}
-
-function ToNear() {
-	var aux = 0.6 * distance + Velocity();
-	
-	transform.position.y = transform.position.y + aux;
+	var acceleration = nearFactor - nearFactor/(1+player.Level());
+	return Time.deltaTime * acceleration;
 }
 
 function FollowPlayer() {
@@ -55,4 +42,8 @@ function FollowPlayer() {
 
 function MirrorEffect() {
 	transform.localScale.x = -1 * transform.position.x;
+}
+
+function AddScore() {
+	sleep++;
 }

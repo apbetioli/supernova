@@ -2,10 +2,19 @@
 
 var player : PlayerController;
 var enemies : GameObject[];
-var coins : GameObject[];
 var turnsToWait : int = 0;
 var idleSpawnTime : float;
 var idleCounter :float;
+
+function Start() {
+	turnsToWait = 0;
+	for(var i = 2; i < 8; i += 3) {
+		var enemy = SpawnEnemy();
+		if(enemy) 		
+			enemy.transform.position.y = i;
+		turnsToWait = 0;
+	}
+}
 
 function Update () {
 	if(player.CanMove()) {
@@ -27,8 +36,7 @@ function TimedSpawn() {
 }
 
 function Spawn() {
-	if(!SpawnEnemy())
-		SpawnCoin();
+	SpawnEnemy();
 }
 
 function SpawnEnemy() {
@@ -48,19 +56,7 @@ function SpawnEnemy() {
 	return enemy;
 }
 
-function SpawnCoin() {
-
-	if(Random.Range(-10, 9) < 8)
-		return;
-	
-	var position = transform.position;
-	position.x += RandomSide();
-	
-	var coinsIndex = Random.Range(0, coins.Length);
-	Instantiate(coins[coinsIndex], position, transform.rotation);
-}
-
 function RandomSide() {
 	var rand = Random.Range(-10, 9);
-	return rand >= 0 ? 1 : -1;
+	return rand >= 0 ? 1.2 : -1.2;
 }
