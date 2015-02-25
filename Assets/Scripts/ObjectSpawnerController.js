@@ -16,7 +16,7 @@ function Start() {
 	}
 }
 
-function Update () {
+function Update() {
 	if(player.CanMove()) {
 		Spawn();
 	}

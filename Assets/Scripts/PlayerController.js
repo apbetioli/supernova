@@ -9,6 +9,7 @@ var isDead = false;
 var isRunning = false;
 var ui : UIController;
 var scoreCounterController: ScoreCounterController;
+var ghost : GhostController;
 
 function Start() {
 	score = 0;
@@ -21,6 +22,7 @@ function Update () {
 			isRunning = true;
 		
 		ChangeRoadSideOrNot();
+		AddScore();
 	}
 }
 
@@ -88,6 +90,6 @@ function AddScore () {
 }
 
 function Level() {
-	return initialLevel + score / 10;
+	return initialLevel + score / 20;
 }
 

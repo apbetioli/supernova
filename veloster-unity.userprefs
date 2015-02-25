@@ -1,16 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Share.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ObjectSpawnerController.js">
     <Files>
-      <File FileName="ScoreCounterController.js" Line="6" Column="19" />
+      <File FileName="ScoreCounterController.js" Line="3" Column="1" />
       <File FileName="UIController.js" Line="1" Column="1" />
       <File FileName="GhostController.js" Line="1" Column="1" />
-      <File FileName="PlayerController.js" Line="1" Column="1" />
-      <File FileName="EnemyController.js" Line="1" Column="1" />
-      <File FileName="BackgroundController.js" Line="1" Column="1" />
-      <File FileName="ObjectSpawnerController.js" Line="1" Column="1" />
+      <File FileName="PlayerController.js" Line="89" Column="19" />
+      <File FileName="EnemyController.js" Line="8" Column="43" />
+      <File FileName="BackgroundController.js" Line="8" Column="22" />
+      <File FileName="ObjectSpawnerController.js" Line="51" Column="19" />
       <File FileName="ScoreController.js" Line="1" Column="1" />
-      <File FileName="Share.cs" Line="24" Column="3" />
+      <File FileName="Share.cs" Line="10" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

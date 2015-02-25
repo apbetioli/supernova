@@ -165,10 +165,10 @@ TextureImporter:
     - name: all-tron_10
       rect:
         serializedVersion: 2
-        x: 600
-        y: 703
-        width: 104
-        height: 104
+        x: 590
+        y: 700
+        width: 106
+        height: 106
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
