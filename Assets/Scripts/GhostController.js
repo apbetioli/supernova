@@ -6,12 +6,13 @@ var farFactor : float;
 var nearFactor : float;
 var sleep : float;
 var ghostAnimator : Animator;
+var start : boolean = false;
 
 function Update () {
 	FollowPlayer();
 	MirrorEffect();
 
-	if(player.isDead || !player.isRunning) 
+	if(player.isDead || !player.isRunning || !start) 
 		return;
 		
 	if(sleep > 0) {
@@ -46,4 +47,5 @@ function MirrorEffect() {
 
 function AddScore() {
 	sleep++;
+	start = true;
 }

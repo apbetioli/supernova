@@ -7,8 +7,12 @@ var idleSpawnTime : float;
 var idleCounter :float;
 
 function Start() {
+	InitialConfig();
+}
+
+function InitialConfig() {
 	turnsToWait = 0;
-	for(var i = 2; i < 8; i += 3) {
+	for(var i = 5; i < 8; i += 3) {
 		var enemy = SpawnEnemy();
 		if(enemy) 		
 			enemy.transform.position.y = i;

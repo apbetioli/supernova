@@ -84,8 +84,6 @@ function AddScore () {
 
 	score++;
 	
-	ui.PlayPassbySound();
-	
 	ui.AdjustPitch();
 }
 
