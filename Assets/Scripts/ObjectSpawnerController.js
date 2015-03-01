@@ -11,25 +11,26 @@ function Start() {
 }
 
 function InitialConfig() {
-	turnsToWait = 0;
 	for(var i = 5; i < 8; i += 3) {
+		turnsToWait = 0;
 		var enemy = SpawnEnemy();
 		if(enemy) 		
 			enemy.transform.position.y = i;
-		turnsToWait = 0;
 	}
 }
 
-function FixedUpdate() {
-	if(player.CanMove()) {
-		Spawn();
-		return;
-	}
-
+function Update() {
 	if(player.isDead) {
 		TimedSpawn();
 		return;
 	}
+}
+
+function OnTouch() {
+	if(player.isDead)
+		return;
+		
+	Spawn();
 }
 
 function TimedSpawn() {

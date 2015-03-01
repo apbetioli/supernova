@@ -1,12 +1,15 @@
 ﻿#pragma strict
 
-var player : PlayerController;
 var animator : Animator;
 var sound: UI.Toggle;
 var gameOverSound : AudioSource;
 var backgroundSoundTrack : AudioSource;
 var deathSound : AudioSource;
 var passbySound : AudioSource;
+
+var player : PlayerController;
+var background : BackgroundController;
+var spawner : ObjectSpawnerController;
 
 function Start() {
 	sound.isOn = PlayerPrefs.GetString("sound", "ON") == "ON";
@@ -16,20 +19,29 @@ function Start() {
 function Update () {	
 	if (Input.GetKeyDown(KeyCode.Escape))
 		Application.Quit(); 
-
+		
+	if(Input.GetMouseButtonDown(0)) {
+		player.OnTouch();
+		background.OnTouch();
+		spawner.OnTouch();
+	}
+	
 	if(player.isDead) {
 		animator.SetTrigger("GameOver");
 		return;
 	}
+
 	if(player.score >= player.highscore) {
 		animator.SetTrigger("HighScore");
 		return;
 	}
+	
 	if(player.isRunning) {
 		animator.SetTrigger("Start");
 		return;
 	}
 }
+		
 
 function Play() {
 	Application.LoadLevel(Application.loadedLevel);

@@ -16,18 +16,15 @@ function Start() {
 	highscore = PlayerPrefs.GetInt("highscore", 0);
 }
 
-function Update () {
-	if(CanMove())  {
-		if(!isRunning)
-			isRunning = true;
-		
-		ChangeRoadSideOrNot();
-		AddScore();
-	}
-}
-
-function CanMove() {
-	return Input.GetMouseButtonDown(0) && !isDead;
+function OnTouch() {
+	if(isDead)
+		return;
+	
+	if(!isRunning)
+		isRunning = true;
+	
+	ChangeRoadSideOrNot();
+	AddScore();
 }
 
 function ChangeRoadSideOrNot() {

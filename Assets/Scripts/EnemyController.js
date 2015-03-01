@@ -23,7 +23,7 @@ function Update () {
 	}
 	else {
 	
-		if(player.CanMove()) {
+		if(Input.GetMouseButtonDown(0)) {
 			transform.position.y -= counter;		
 			counter = step;
 		}
