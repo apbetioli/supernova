@@ -20,13 +20,15 @@ function InitialConfig() {
 	}
 }
 
-function Update() {
+function FixedUpdate() {
 	if(player.CanMove()) {
 		Spawn();
+		return;
 	}
 
 	if(player.isDead) {
 		TimedSpawn();
+		return;
 	}
 }
 

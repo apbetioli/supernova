@@ -14,8 +14,7 @@ function Start () {
 }
 
 function Update () {
-		
-	RollBackground(idleStep * Time.deltaTime);
+	//RollBackground(idleStep);
 	
 	if( counter > 0 ) {
 		RollBackground(step);
@@ -25,12 +24,12 @@ function Update () {
 			counter = totalOffset;
 		}
 	}
-	
 }
 
 function RollBackground(rollStep : float) {
 	var mat = renderer.material;
 	var offset = mat.mainTextureOffset;
+	Mathf.SmoothStep(offset.y, offset.y+rollStep, 4);
 	offset.y += rollStep;
 	offset.y = offset.y % 1;
 	mat.mainTextureOffset = offset;
