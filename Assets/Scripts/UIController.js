@@ -67,7 +67,7 @@ function PlayPassbySound() {
 	if(!sound.isOn)
 		return;
 		
-	passbySound.Play();
+	//passbySound.Play();
 }
 
 function ToggleSound() {
@@ -78,30 +78,18 @@ function ToggleSound() {
 		backgroundSoundTrack.Stop();
 		gameOverSound.Stop();
 	} else {
+		passbySound.Play();
+	
 		if(player.isDead)
 			gameOverSound.Play();
 		else
 			backgroundSoundTrack.Play();
 	}
+	
 }
 
 function AdjustPitch() {
 	backgroundSoundTrack.pitch = 1.0 + (player.Level() - 1) / 100.0;
-}
-
-function Share() {
-	ShareTwitter("Teste", "http://twitter.com", "apbetioli", "en");
-}
-
-function ShareTwitter(text, url, related, lang) {
-	var address = "http://twitter.com/intent/tweet";
-
-    Application.OpenURL(address +
-        "?text=" + WWW.EscapeURL(text) +
-        "&amp;url=" + WWW.EscapeURL(url) +
-        "&amp;related=" + WWW.EscapeURL(related) +
-        "&amp;lang=" + WWW.EscapeURL(lang));
-	
 }
 
 function PlayNewHighScoreAnimation() {

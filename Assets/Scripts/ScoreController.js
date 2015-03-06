@@ -15,9 +15,10 @@ function Update () {
 	scoreText.text = "" + player.score;
 		
 	if(player.isDead) {
+	
 		if( counter < player.score) {
 			gameOverScoreText.text = "Score : " + counter;
-			counter += 1;
+			counter += player.Level();
 		}
 		else
 			gameOverScoreText.text = "Score : " + player.score + "\nBest : " + player.highscore;

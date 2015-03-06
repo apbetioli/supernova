@@ -1,15 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BackgroundController.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ScoreController.js">
     <Files>
+      <File FileName="UIController.js" Line="95" Column="39" />
+      <File FileName="GhostController.js" Line="1" Column="1" />
       <File FileName="BackgroundController.js" Line="1" Column="1" />
       <File FileName="PlayerController.js" Line="1" Column="1" />
       <File FileName="ScoreCounterController.js" Line="1" Column="1" />
-      <File FileName="UIController.js" Line="1" Column="1" />
-      <File FileName="GhostController.js" Line="1" Column="1" />
       <File FileName="EnemyController.js" Line="1" Column="1" />
       <File FileName="ObjectSpawnerController.js" Line="1" Column="1" />
-      <File FileName="ScoreController.js" Line="1" Column="1" />
+      <File FileName="ScoreController.js" Line="7" Column="1" />
       <File FileName="ShareButtonController.js" Line="1" Column="1" />
       <File FileName="..\Plugins\Share.cs" Line="1" Column="1" />
     </Files>
