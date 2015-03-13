@@ -29,7 +29,7 @@ function OnTouch() {
 }
 
 function RollBackground(rollStep : float) {
-	var mat = renderer.material;
+	var mat = GetComponent.<Renderer>().material;
 	var offset = mat.mainTextureOffset;
 	offset.y += rollStep;
 	offset.y = offset.y % 1;

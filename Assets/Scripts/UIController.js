@@ -2,14 +2,13 @@
 
 var animator : Animator;
 var sound: UI.Toggle;
-var gameOverSound : AudioSource;
 var backgroundSoundTrack : AudioSource;
 var deathSound : AudioSource;
-var passbySound : AudioSource;
 
 var player : PlayerController;
 var background : BackgroundController;
 var spawner : ObjectSpawnerController;
+var ghost : GhostController;
 
 function Start() {
 	sound.isOn = PlayerPrefs.GetString("sound", "ON") == "ON";
@@ -24,6 +23,7 @@ function Update () {
 		player.OnTouch();
 		background.OnTouch();
 		spawner.OnTouch();
+		ghost.OnTouch();
 	}
 	
 	if(player.isDead) {
@@ -44,7 +44,7 @@ function Update () {
 		
 
 function Play() {
-	Application.LoadLevel(Application.loadedLevel);
+	Application.LoadLevel("race");
 }
 
 function PlayBackgroundSoundTrack() {
@@ -59,15 +59,7 @@ function PlayDeathSound() {
 		return;
 
 	deathSound.Play();
-	gameOverSound.Play();
 	backgroundSoundTrack.Stop();
-}
-
-function PlayPassbySound() {
-	if(!sound.isOn)
-		return;
-		
-	//passbySound.Play();
 }
 
 function ToggleSound() {
@@ -76,13 +68,8 @@ function ToggleSound() {
 	
 	if(!sound.isOn) {
 		backgroundSoundTrack.Stop();
-		gameOverSound.Stop();
 	} else {
-		passbySound.Play();
-	
-		if(player.isDead)
-			gameOverSound.Play();
-		else
+		if(!player.isDead)
 			backgroundSoundTrack.Play();
 	}
 	

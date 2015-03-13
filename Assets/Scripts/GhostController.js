@@ -12,11 +12,11 @@ function Update () {
 	FollowPlayer();
 	MirrorEffect();
 
-	if(player.isDead || !player.isRunning || !start) 
+	if(player.isDead || !player.isRunning) 
 		return;
 		
 	if(sleep > 0) {
-		sleep -= Velocity();
+		sleep -= nearFactor * Velocity();
 		transform.position.y -= farFactor * Velocity();
 		ghostAnimator.SetTrigger("Sleep");
 	} else {
@@ -25,16 +25,17 @@ function Update () {
 		ghostAnimator.SetTrigger("Haunt");
 	}
 	
-	if(transform.position.y < minYPosition) {	
+	if(transform.position.y < minYPosition) 
 		transform.position.y = minYPosition;
-		sleep = 0;
-	}
 	
 }
 
+function Acceleration() {
+	return nearFactor - nearFactor/(1+player.Level());
+}
+
 function Velocity() {
-	var acceleration = nearFactor - nearFactor/(1+player.Level());
-	return Time.deltaTime * acceleration;
+	return Time.deltaTime * Acceleration();
 }
 
 function FollowPlayer() {
@@ -45,7 +46,10 @@ function MirrorEffect() {
 	transform.localScale.x = -1 * transform.position.x;
 }
 
+function OnTouch() {
+	sleep = Mathf.Min(sleep+1, Acceleration()); 
+}
+
 function AddScore() {
-	sleep++;
 	start = true;
 }
