@@ -39,6 +39,7 @@ TextureImporter:
     21300068: all_15
     21300070: all_16
     21300072: all_17
+    21300074: all_18
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -257,6 +258,16 @@ TextureImporter:
         y: 468
         width: 322
         height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: all_18
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 373
+        width: 84
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
