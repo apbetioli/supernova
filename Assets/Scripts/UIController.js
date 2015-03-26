@@ -4,6 +4,7 @@ var animator : Animator;
 var sound: UI.Toggle;
 var backgroundSoundTrack : AudioSource;
 var deathSound : AudioSource;
+var highscoreSound : AudioSource;
 
 var player : PlayerController;
 var background : BackgroundController;
@@ -32,6 +33,7 @@ function Update () {
 	}
 
 	if(player.score >= player.highscore) {
+		highscoreSound.Play();
 		animator.SetTrigger("HighScore");
 		return;
 	}

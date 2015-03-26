@@ -3,25 +3,21 @@
 var player : PlayerController;
 var scoreText : UI.Text;
 var gameOverScoreText : UI.Text;
-var counter: float;
 
 function Start() {
-	counter = 0;
-	
 	gameOverScoreText.text = "Best : " + player.highscore;
 }
 
 function Update () {
 	scoreText.text = "" + player.score;
-		
-	if(player.isDead) {
 	
-		if( counter < player.score) {
-			gameOverScoreText.text = "Score : " + counter;
-			counter += player.Level();
-		}
-		else
-			gameOverScoreText.text = "Score : " + player.score + "\nBest : " + player.highscore;
+	if(player.isDead) {
+		gameOverScoreText.text = "";
+		
+		if(player.score >= player.highscore)
+			gameOverScoreText.text += "NEW ";
+		
+		gameOverScoreText.text += "Best : " + player.highscore;
 	}
 
 }

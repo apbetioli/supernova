@@ -13,7 +13,7 @@ var ghost : GhostController;
 
 function Start() {
 	score = 0;
-	highscore = PlayerPrefs.GetInt("highscore", 0);
+	highscore = 10;//PlayerPrefs.GetInt("highscore", 0);
 }
 
 function OnTouch() {
