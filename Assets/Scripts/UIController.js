@@ -32,8 +32,7 @@ function Update () {
 		return;
 	}
 
-	if(player.score >= player.highscore) {
-		highscoreSound.Play();
+	if(player.score > player.highscore) {
 		animator.SetTrigger("HighScore");
 		return;
 	}
@@ -42,8 +41,7 @@ function Update () {
 		animator.SetTrigger("Start");
 		return;
 	}
-}
-		
+}		
 
 function Play() {
 	Application.LoadLevel("race");
@@ -64,6 +62,13 @@ function PlayDeathSound() {
 	backgroundSoundTrack.Stop();
 }
 
+function PlayHighscoreSound() {
+	if(!sound.isOn)
+		return;
+		
+	highscoreSound.Play();
+}
+
 function ToggleSound() {
 	
 	PlayerPrefs.SetString("sound", sound.isOn ? "ON" : "OFF");
@@ -81,6 +86,3 @@ function AdjustPitch() {
 	backgroundSoundTrack.pitch = 1.0 + (player.Level() - 1) / 100.0;
 }
 
-function PlayNewHighScoreAnimation() {
-	animator.SetTrigger("HighScore");
-}

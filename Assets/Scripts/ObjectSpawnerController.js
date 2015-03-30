@@ -1,10 +1,12 @@
-﻿#pragma strict
+#pragma strict
 
 var player : PlayerController;
 var enemies : GameObject[];
+var scenery : GameObject[];
 var turnsToWait : int = 0;
+var turnsToWaitScenery : int = 0;
 var idleSpawnTime : float;
-var idleCounter :float;
+var idleCounter : float;
 
 function Start() {
 	InitialConfig();
@@ -26,6 +28,21 @@ function Update() {
 	}
 }
 
+function ScenerySpawn() {
+	if(turnsToWaitScenery > 0) {
+		turnsToWaitScenery--;
+		return;
+	}
+	
+	var position = transform.position;
+	position.x += RandomSide() * 3;
+	
+	var sceneryIndex = Random.Range(0, scenery.Length);
+	Instantiate(scenery[sceneryIndex], position, transform.rotation);
+	
+	turnsToWaitScenery = Random.Range(1, 5);
+}
+
 function OnTouch() {
 	if(player.isDead)
 		return;
@@ -44,6 +61,7 @@ function TimedSpawn() {
 
 function Spawn() {
 	SpawnEnemy();
+	ScenerySpawn();
 }
 
 function SpawnEnemy() {

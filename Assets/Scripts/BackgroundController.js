@@ -8,8 +8,10 @@ var idleStep : float;
 var materials : Material[];
 
 function Start () {
+	/*
 	var meshRenderer : MeshRenderer = GetComponent(MeshRenderer);
 	meshRenderer.material = materials[Random.Range(0, materials.Length)];
+	*/
 }
 
 function Update () {

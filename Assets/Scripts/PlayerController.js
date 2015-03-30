@@ -13,7 +13,7 @@ var ghost : GhostController;
 
 function Start() {
 	score = 0;
-	highscore = 10;//PlayerPrefs.GetInt("highscore", 0);
+	highscore = PlayerPrefs.GetInt("highscore", 0);
 }
 
 function OnTouch() {
@@ -67,8 +67,6 @@ function Die() {
 
 	isDead = true;
 	playerAnimator.SetTrigger("Death");
-	
-	ui.PlayDeathSound();
 }
 
 function isIdle() {

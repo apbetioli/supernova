@@ -1,9 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GhostController.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerController.js">
     <Files>
-      <File FileName="phantom-escape.sln" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GhostController.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UIController.js" Line="62" Column="22" />
+      <File FileName="Assets\Plugins\Share.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ObjectSpawnerController.js" Line="43" Column="40" />
+      <File FileName="Assets\Scripts\PlayerController.js" Line="16" Column="14" />
+      <File FileName="Assets\Scripts\SceneryController.js" Line="24" Column="8" />
+      <File FileName="Assets\Scripts\EnemyController.js" Line="18" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
