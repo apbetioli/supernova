@@ -1,0 +1,32 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# Sprite sheet: sprites.png (256 x 512)
+# $TexturePacker:SmartUpdate:a742f66a38130e9beb7de216efd174e4:cab6ff0d5fad04841dd0c6c8b72de631:b476a0b765120c4618d8e49c5863b5b3$
+#
+
+blue;218;427;16;16;0.5;0.5
+car_anim_1;116;370;100;140;0.5;0.5
+car_anim_2;2;289;100;140;0.5;0.5
+car_dead;104;228;100;140;0.5;0.5
+green;236;427;16;16;0.5;0.5
+haunted house;218;445;30;31;0.5333333333333333;0.5161290322580645
+haunted tree;218;478;31;32;0.4838709677419355;0.5
+left;218;409;16;16;0.5;0.5
+ocean;236;409;16;16;0.5;0.5
+orange;218;391;16;16;0.5;0.5
+phantom_hunt;236;391;16;16;0.5;0.5
+phantom_hunt_2;2;431;112;79;0.5;0.5
+phantom_sad;218;373;16;16;0.5;0.5
+phantom_sad_2;2;208;84;79;0.5;0.5
+pink;236;373;16;16;0.5;0.5
+play;206;337;48;16;0.5;0.5
+red;218;355;16;16;0.5;0.5
+rigth;236;355;16;16;0.5;0.5
+rip;206;319;16;16;0.5;0.5
+share;224;319;16;16;0.5;0.5
+speaker off;206;301;16;16;0.5;0.5
+speaker on;224;301;16;16;0.5;0.5

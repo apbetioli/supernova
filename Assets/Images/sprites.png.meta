@@ -15,6 +15,15 @@ TextureImporter:
     21300020: sprites_10
     21300022: sprites_11
     21300024: sprites_12
+    21300026: sprites_13
+    21300028: sprites_14
+    21300030: sprites_15
+    21300032: sprites_16
+    21300034: sprites_17
+    21300036: sprites_18
+    21300038: sprites_19
+    21300040: sprites_20
+    21300042: sprites_21
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -50,7 +59,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
@@ -60,39 +69,39 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 110
-        width: 48
-        height: 16
+        y: 431
+        width: 112
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: sprites_1
       rect:
         serializedVersion: 2
-        x: 2
-        y: 76
-        width: 31
-        height: 32
+        x: 116
+        y: 370
+        width: 100
+        height: 140
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: sprites_2
       rect:
         serializedVersion: 2
-        x: 35
-        y: 92
-        width: 16
-        height: 16
+        x: 218
+        y: 478
+        width: 31
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: sprites_3
       rect:
         serializedVersion: 2
-        x: 35
-        y: 74
-        width: 16
-        height: 16
+        x: 218
+        y: 445
+        width: 30
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -100,17 +109,17 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 43
-        width: 30
-        height: 31
+        y: 289
+        width: 100
+        height: 140
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: sprites_5
       rect:
         serializedVersion: 2
-        x: 34
-        y: 56
+        x: 218
+        y: 427
         width: 16
         height: 16
       alignment: 0
@@ -119,8 +128,8 @@ TextureImporter:
     - name: sprites_6
       rect:
         serializedVersion: 2
-        x: 2
-        y: 25
+        x: 236
+        y: 427
         width: 16
         height: 16
       alignment: 0
@@ -129,8 +138,8 @@ TextureImporter:
     - name: sprites_7
       rect:
         serializedVersion: 2
-        x: 34
-        y: 38
+        x: 218
+        y: 409
         width: 16
         height: 16
       alignment: 0
@@ -139,8 +148,8 @@ TextureImporter:
     - name: sprites_8
       rect:
         serializedVersion: 2
-        x: 2
-        y: 7
+        x: 236
+        y: 409
         width: 16
         height: 16
       alignment: 0
@@ -149,8 +158,8 @@ TextureImporter:
     - name: sprites_9
       rect:
         serializedVersion: 2
-        x: 20
-        y: 20
+        x: 218
+        y: 391
         width: 16
         height: 16
       alignment: 0
@@ -159,8 +168,8 @@ TextureImporter:
     - name: sprites_10
       rect:
         serializedVersion: 2
-        x: 38
-        y: 20
+        x: 236
+        y: 391
         width: 16
         height: 16
       alignment: 0
@@ -169,8 +178,8 @@ TextureImporter:
     - name: sprites_11
       rect:
         serializedVersion: 2
-        x: 20
-        y: 2
+        x: 218
+        y: 373
         width: 16
         height: 16
       alignment: 0
@@ -179,10 +188,100 @@ TextureImporter:
     - name: sprites_12
       rect:
         serializedVersion: 2
-        x: 38
-        y: 2
+        x: 236
+        y: 373
         width: 16
         height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprites_13
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 228
+        width: 100
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprites_14
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 355
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprites_15
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 355
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprites_16
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 337
+        width: 48
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprites_17
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 319
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprites_18
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 319
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprites_19
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 301
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprites_20
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 301
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprites_21
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 208
+        width: 84
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

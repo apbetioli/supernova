@@ -1,17 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GhostController.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\Plugins\CustomEvents.cs">
     <Files>
-      <File FileName="UIController.js" Line="26" Column="19" />
-      <File FileName="GhostController.js" Line="10" Column="1" />
-      <File FileName="BackgroundController.js" Line="28" Column="23" />
-      <File FileName="PlayerController.js" Line="1" Column="1" />
-      <File FileName="ScoreCounterController.js" Line="1" Column="1" />
-      <File FileName="EnemyController.js" Line="1" Column="1" />
-      <File FileName="ObjectSpawnerController.js" Line="58" Column="2" />
-      <File FileName="ScoreController.js" Line="1" Column="1" />
-      <File FileName="ShareButtonController.js" Line="1" Column="1" />
-      <File FileName="..\Plugins\Share.cs" Line="1" Column="1" />
+      <File FileName="PlayerController.js" Line="64" Column="3" />
+      <File FileName="UnityAnalyticsIntegration.cs" Line="1" Column="1" />
+      <File FileName="..\Plugins\CustomEvents.cs" Line="8" Column="32" />
+      <File FileName="..\Plugins\Share.cs" Line="6" Column="33" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

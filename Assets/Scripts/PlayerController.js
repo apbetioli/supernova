@@ -2,7 +2,6 @@
 
 var score : int = 0;
 var highscore : int = 0;
-var soundOn : boolean = true;
 var initialLevel: int = 1;
 var playerAnimator : Animator;
 var isDead = false;
@@ -10,10 +9,12 @@ var isRunning = false;
 var ui : UIController;
 var scoreCounterController: ScoreCounterController;
 var ghost : GhostController;
+var analytics : CustomEvents;
 
 function Start() {
 	score = 0;
 	highscore = PlayerPrefs.GetInt("highscore", 0);
+	analytics = this.GetComponent("CustomEvents");
 }
 
 function OnTouch() {
@@ -46,19 +47,21 @@ function OnTriggerEnter2D(col: Collider2D) {
 		return;
 	
 	if(col.gameObject.tag == "Enemy") {
-		Die();
+		Die("Enemy");
 		return;
 	}
 	
 	if(col.gameObject.tag == "Ghost") {
-		Die();
+		Die("Ghost");
 		return;
 	}
 }
 
-function Die() {
+function Die(by) {
 	if(isDead) 
 		return;
+		
+	analytics.Death(score, by);
 		
 	if(score > highscore) {
 		highscore = score;
