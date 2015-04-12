@@ -61,11 +61,11 @@
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>
- <Reference Include="UnityEngine.Cloud.Analytics.Util">
- <HintPath>E:/Alexandre/GIT/veloster-unity/Assets/Plugins/UnityEngine.Cloud.Analytics.Util.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.Cloud.Analytics">
  <HintPath>E:/Alexandre/GIT/veloster-unity/Assets/Plugins/UnityEngine.Cloud.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Cloud.Analytics.Util">
+ <HintPath>E:/Alexandre/GIT/veloster-unity/Assets/Plugins/UnityEngine.Cloud.Analytics.Util.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
