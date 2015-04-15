@@ -3,30 +3,20 @@
 var player : PlayerController;
 var step : float;
 var counter : float = 0;
+var positiony : float;
 
 function Start () {
 	player = GameObject.Find("Player").GetComponent(PlayerController);
 	if(player == null) 
 		Debug.LogError("Could not find the Player");
+		
+	positiony = transform.position.y;
 }
 
 function Update () {
-	if(player.isDead) {
-		transform.position.y -= step * Time.deltaTime;
-		return;
-	}
-
-	if(counter > 0) {
-		var aux : float = step/4.0;
-		transform.position.y -= aux;
-		counter -= aux;
-	}
-	else {
+	if(Input.GetMouseButtonDown(0) && !player.isDead)
+		positiony = positiony - step;
 	
-		if(Input.GetMouseButtonDown(0)) {
-			transform.position.y -= counter;		
-			counter = step;
-		}
-	}
+	transform.position.y = Mathf.Lerp(transform.position.y, positiony, 10 * step * Time.deltaTime);
 }
 

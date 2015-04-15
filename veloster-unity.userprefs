@@ -1,12 +1,19 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\Plugins\CustomEvents.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ObjectSpawnerController.js">
     <Files>
-      <File FileName="PlayerController.js" Line="17" Column="45" />
+      <File FileName="..\..\veloster-unity.sln" Line="1" Column="1" />
+      <File FileName="BackgroundController.js" Line="33" Column="23" />
+      <File FileName="PlayerController.js" Line="1" Column="1" />
       <File FileName="UnityAnalyticsIntegration.cs" Line="1" Column="1" />
-      <File FileName="..\Plugins\CustomEvents.cs" Line="10" Column="32" />
+      <File FileName="..\Plugins\CustomEvents.cs" Line="1" Column="1" />
       <File FileName="..\Plugins\Share.cs" Line="1" Column="1" />
-      <File FileName="ShareButtonController.js" Line="6" Column="2" />
+      <File FileName="ShareButtonController.js" Line="1" Column="1" />
+      <File FileName="ObjectSpawnerController.js" Line="16" Column="3" />
+      <File FileName="GhostController.js" Line="30" Column="2" />
+      <File FileName="EnemyController.js" Line="16" Column="5" />
+      <File FileName="ObjectDestroyerController.js" Line="1" Column="1" />
+      <File FileName="SceneryController.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -5,7 +5,7 @@ var totalOffset : float;
 var step : float;
 var counter : float;
 var idleStep : float;
-var materials : Material[];
+//var materials : Material[];
 
 function Start () {
 	/*

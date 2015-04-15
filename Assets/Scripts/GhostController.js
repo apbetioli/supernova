@@ -43,7 +43,7 @@ function FollowPlayer() {
 }
 
 function MirrorEffect() {
-	transform.localScale.x = -1 * transform.position.x;
+	//transform.localScale.x = -1 * transform.position.x;
 }
 
 function OnTouch() {

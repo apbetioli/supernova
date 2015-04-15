@@ -25,7 +25,6 @@ function OnTouch() {
 		isRunning = true;
 	
 	ChangeRoadSideOrNot();
-	AddScore();
 }
 
 function ChangeRoadSideOrNot() {
@@ -53,6 +52,12 @@ function OnTriggerEnter2D(col: Collider2D) {
 	
 	if(col.gameObject.tag == "Ghost") {
 		Die("Ghost");
+		return;
+	}
+	
+	if(col.gameObject.tag == "Collect") {
+		AddScore();
+		Destroy(col.gameObject);
 		return;
 	}
 }
@@ -86,6 +91,6 @@ function AddScore () {
 }
 
 function Level() {
-	return initialLevel + score / 20;
+	return initialLevel + score / 10;
 }
 

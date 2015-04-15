@@ -2,45 +2,31 @@
 
 var player : PlayerController;
 var enemies : GameObject[];
-var scenery : GameObject[];
-var turnsToWait : int = 0;
-var turnsToWaitScenery : int = 0;
-var idleSpawnTime : float;
-var idleCounter : float;
+var collects : GameObject[];
 
 function Start() {
 	InitialConfig();
 }
 
 function InitialConfig() {
-	for(var i = 5; i < 8; i += 3) {
-		turnsToWait = 0;
-		var enemy = SpawnEnemy();
-		if(enemy) 		
-			enemy.transform.position.y = i;
+	for(var i = 1; i <= 7; i += 2) {
+		var collect = SpawnCollect();
+		if(collect) 		
+			collect.transform.position.y = i;
 	}
 }
 
-function Update() {
-	if(player.isDead) {
-		TimedSpawn();
-		return;
-	}
-}
-
-function ScenerySpawn() {
-	if(turnsToWaitScenery > 0) {
-		turnsToWaitScenery--;
-		return;
-	}
-	
+function SpawnCollect() {
 	var position = transform.position;
-	position.x += RandomSide() * 3;
+	position.x += RandomSide();
 	
-	var sceneryIndex = Random.Range(0, scenery.Length);
-	Instantiate(scenery[sceneryIndex], position, transform.rotation);
-	
-	turnsToWaitScenery = Random.Range(1, 5);
+	return RandomSpawn(collects, position);
+}
+
+function Spawn() {
+	var collect = SpawnCollect();
+	if(collect) 		
+		SpawnEnemy(-collect.transform.position.x);
 }
 
 function OnTouch() {
@@ -50,38 +36,24 @@ function OnTouch() {
 	Spawn();
 }
 
-function TimedSpawn() {
-	if(idleCounter >= idleSpawnTime) {
-		idleCounter = 0;
-		Spawn();
-	} else {
-		idleCounter += Time.deltaTime;
-	}
-}
-
-function Spawn() {
-	SpawnEnemy();
-	ScenerySpawn();
-}
-
-function SpawnEnemy() {
-	if(turnsToWait > 0) {
-		turnsToWait--;
+function SpawnEnemy(positionx : int) {
+	var should = Random.Range(0, 10);
+	if(should > 5)
 		return;
-	}
 	
 	var position = transform.position;
-	position.x += RandomSide();
+	position.x = positionx;
 	
-	var enemyIndex = Random.Range(0, enemies.Length);
-	var enemy = Instantiate(enemies[enemyIndex], position, transform.rotation);
-	
-	turnsToWait = Random.Range(1, 3);
-	
-	return enemy;
+	return RandomSpawn(enemies, position);
+}
+
+function RandomSpawn(array : GameObject[], position) {
+	var index = Random.Range(0, array.Length);
+	var prefab = array[index];
+	return Instantiate(prefab, position, prefab.transform.rotation);
 }
 
 function RandomSide() {
 	var rand = Random.Range(-10, 9);
-	return rand >= 0 ? 1.2 : -1.2;
+	return rand >= 0 ? 2 : -2;
 }
