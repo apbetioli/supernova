@@ -1,39 +1,33 @@
 ﻿#pragma strict
 
 var player : PlayerController;
-var totalOffset : float;
-var step : float;
-var counter : float;
-var idleStep : float;
-//var materials : Material[];
+var velocity : float;
+var material : Material;
+var randomDirection : boolean;
+var directionX : int = 1;
+var directionY : int = 1;
 
-function Start () {
-	/*
-	var meshRenderer : MeshRenderer = GetComponent(MeshRenderer);
-	meshRenderer.material = materials[Random.Range(0, materials.Length)];
-	*/
+function Start() {
+	material = GetComponent.<Renderer>().material;
+	var offset = material.mainTextureOffset;
+	offset.x = Random.Range(0.0, 1.0);
+	offset.y = Random.Range(0.0, 1.0);
+	material.mainTextureOffset = offset;
+	
+	if(randomDirection) {
+		directionX = RandomSide();
+		directionY = RandomSide();
+	}
+}
+
+function RandomSide() {
+	var rand = Random.Range(-10, 9);
+	return rand >= 0 ? 1 : -1;
 }
 
 function Update () {
-	if( counter > 0 ) {
-		RollBackground(step);
-		counter -= step;
-	}
-	
-	RollBackground(idleStep * Time.deltaTime);
-}
-
-function OnTouch() {
-	if(player.isDead)
-		return;
-		
-	counter = totalOffset;
-}
-
-function RollBackground(rollStep : float) {
-	var mat = GetComponent.<Renderer>().material;
-	var offset = mat.mainTextureOffset;
-	offset.y += rollStep;
-	offset.y = offset.y % 1;
-	mat.mainTextureOffset = offset;
+	var offset = material.mainTextureOffset;
+	offset.x = Mathf.Lerp(offset.x, offset.x + velocity*directionX, Time.deltaTime);
+	offset.y = Mathf.Lerp(offset.y, offset.y + velocity*directionY, Time.deltaTime);
+	material.mainTextureOffset = offset;
 }

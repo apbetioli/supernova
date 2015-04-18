@@ -7,7 +7,6 @@ var deathSound : AudioSource;
 var highscoreSound : AudioSource;
 
 var player : PlayerController;
-var background : BackgroundController;
 var spawner : ObjectSpawnerController;
 var ghost : GhostController;
 
@@ -22,7 +21,6 @@ function Update () {
 		
 	if(Input.GetMouseButtonDown(0)) {
 		player.OnTouch();
-		background.OnTouch();
 		spawner.OnTouch();
 		ghost.OnTouch();
 	}

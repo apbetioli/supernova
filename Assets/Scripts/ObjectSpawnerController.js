@@ -9,7 +9,7 @@ function Start() {
 }
 
 function InitialConfig() {
-	for(var i = 1; i <= 7; i += 2) {
+	for(var i = player.transform.position.y+2; i < transform.position.y+2; i += 2) {
 		var collect = SpawnCollect();
 		if(collect) 		
 			collect.transform.position.y = i;

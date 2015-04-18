@@ -1,20 +1,22 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BackgroundController.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ScoreController.js">
     <Files>
       <File FileName="..\..\veloster-unity.sln" Line="1" Column="1" />
-      <File FileName="BackgroundController.js" Line="30" Column="23" />
-      <File FileName="PlayerController.js" Line="94" Column="33" />
+      <File FileName="BackgroundController.js" Line="19" Column="5" />
+      <File FileName="PlayerController.js" Line="1" Column="1" />
       <File FileName="UnityAnalyticsIntegration.cs" Line="1" Column="1" />
       <File FileName="..\Plugins\CustomEvents.cs" Line="1" Column="1" />
-      <File FileName="..\Plugins\Share.cs" Line="1" Column="1" />
+      <File FileName="..\Plugins\Share.cs" Line="49" Column="23" />
       <File FileName="ShareButtonController.js" Line="1" Column="1" />
-      <File FileName="ObjectSpawnerController.js" Line="56" Column="20" />
-      <File FileName="GhostController.js" Line="30" Column="2" />
-      <File FileName="EnemyController.js" Line="17" Column="1" />
+      <File FileName="ObjectSpawnerController.js" Line="12" Column="71" />
+      <File FileName="GhostController.js" Line="1" Column="1" />
+      <File FileName="EnemyController.js" Line="1" Column="1" />
       <File FileName="ObjectDestroyerController.js" Line="1" Column="1" />
       <File FileName="SceneryController.js" Line="1" Column="1" />
-      <File FileName="UIController.js" Line="25" Column="1" />
+      <File FileName="UIController.js" Line="1" Column="1" />
+      <File FileName="ScoreCounterController.js" Line="1" Column="1" />
+      <File FileName="ScoreController.js" Line="8" Column="51" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

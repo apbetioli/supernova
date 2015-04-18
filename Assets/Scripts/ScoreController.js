@@ -5,19 +5,21 @@ var scoreText : UI.Text;
 var gameOverScoreText : UI.Text;
 
 function Start() {
-	gameOverScoreText.text = "Best : " + player.highscore;
+	gameOverScoreText.text = "\n\n\ntap to play\n\n\nleft and right";
 }
 
 function Update () {
 	scoreText.text = "" + player.score;
 	
 	if(player.isDead) {
-		gameOverScoreText.text = "";
+		gameOverScoreText.text = "score: " + player.score + "\n";
 		
-		if(player.score >= player.highscore)
+		if(player.score >= player.highscore) {
 			gameOverScoreText.text += "NEW ";
+			gameOverScoreText.color = Color.cyan;
+		}
 		
-		gameOverScoreText.text += "Best : " + player.highscore;
+		gameOverScoreText.text += "best : " + player.highscore;
 	}
 
 }
