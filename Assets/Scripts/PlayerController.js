@@ -3,6 +3,7 @@
 var score : int = 0;
 var highscore : int = 0;
 var initialLevel: int = 1;
+var missedPlanets: int = 0;
 var playerAnimator : Animator;
 var isDead = false;
 var isRunning = false;
@@ -60,6 +61,21 @@ function OnTriggerEnter2D(col: Collider2D) {
 		Destroy(col.gameObject);
 		return;
 	}
+	
+	if(col.gameObject.tag == "Filler") {
+		Missed();
+		return;
+	}
+}
+
+function Missed() {
+	missedPlanets++;
+	if(missedPlanets == 1)
+		playerAnimator.SetTrigger("Yellow");
+	else if(missedPlanets == 2)
+		playerAnimator.SetTrigger("Red");
+	else	
+		Die("Missed");
 }
 
 function Die(by) {
@@ -91,6 +107,6 @@ function AddScore () {
 }
 
 function Level() {
-	return initialLevel + score / 10;
+	return initialLevel + score / 20;
 }
 

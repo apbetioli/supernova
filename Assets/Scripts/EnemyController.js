@@ -2,8 +2,8 @@
 
 var player : PlayerController;
 var step : float;
-var counter : float = 0;
 var positiony : float;
+var rotationVelocity : float;
 
 function Start () {
 	player = GameObject.Find("Player").GetComponent(PlayerController);
@@ -18,5 +18,7 @@ function Update () {
 		positiony = positiony - step;
 	
 	transform.position.y = Mathf.Lerp(transform.position.y, positiony, 10 * step * Time.deltaTime);
+	
+	transform.Rotate(0, 0, rotationVelocity*Time.deltaTime*transform.position.x);
 }
 

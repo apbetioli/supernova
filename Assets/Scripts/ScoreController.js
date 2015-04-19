@@ -4,10 +4,6 @@ var player : PlayerController;
 var scoreText : UI.Text;
 var gameOverScoreText : UI.Text;
 
-function Start() {
-	gameOverScoreText.text = "\n\n\ntap to play\n\n\nleft and right";
-}
-
 function Update () {
 	scoreText.text = "" + player.score;
 	

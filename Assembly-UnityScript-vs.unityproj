@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\ScoreController.js" />
      <Compile Include="Assets\Scripts\ScoreCounterController.js" />
      <Compile Include="Assets\Scripts\ShareButtonController.js" />
+     <Compile Include="Assets\Scripts\TimerController.js" />
      <Compile Include="Assets\Scripts\UIController.js" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>

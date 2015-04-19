@@ -5,6 +5,7 @@ var sound: UI.Toggle;
 var backgroundSoundTrack : AudioSource;
 var deathSound : AudioSource;
 var highscoreSound : AudioSource;
+var scoreText : UI.Text;
 
 var player : PlayerController;
 var spawner : ObjectSpawnerController;
@@ -32,6 +33,7 @@ function Update () {
 
 	if(player.score > player.highscore) {
 		animator.SetTrigger("HighScore");
+		scoreText.color = Color.cyan;
 		return;
 	}
 	
