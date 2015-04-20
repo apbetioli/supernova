@@ -17,8 +17,7 @@ function Update () {
 	if(Input.GetMouseButtonDown(0) && !player.isDead)
 		positiony = positiony - step;
 	
-	transform.position.y = Mathf.Lerp(transform.position.y, positiony, 10 * step * Time.deltaTime);
+	transform.Rotate(0, 0, -rotationVelocity*Time.deltaTime*transform.position.x);
 	
-	transform.Rotate(0, 0, rotationVelocity*Time.deltaTime*transform.position.x);
+	transform.position.y = Mathf.Lerp(transform.position.y, positiony, 5 * step * Time.deltaTime);
 }
-

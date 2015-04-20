@@ -5,11 +5,13 @@ var sound: UI.Toggle;
 var backgroundSoundTrack : AudioSource;
 var deathSound : AudioSource;
 var highscoreSound : AudioSource;
+var scoreSound: AudioSource;
+var uiSound: AudioSource;
+var missedSound: AudioSource;
 var scoreText : UI.Text;
 
 var player : PlayerController;
 var spawner : ObjectSpawnerController;
-var ghost : GhostController;
 
 function Start() {
 	sound.isOn = PlayerPrefs.GetString("sound", "ON") == "ON";
@@ -18,12 +20,11 @@ function Start() {
 
 function Update () {	
 	if (Input.GetKeyDown(KeyCode.Escape))
-		Application.Quit(); 
+		Application.Quit(); 		
 		
 	if(Input.GetMouseButtonDown(0)) {
 		player.OnTouch();
 		spawner.OnTouch();
-		ghost.OnTouch();
 	}
 	
 	if(player.isDead) {
@@ -62,6 +63,13 @@ function PlayDeathSound() {
 	backgroundSoundTrack.Stop();
 }
 
+function PlayUiSound() {
+	if(!sound.isOn)
+		return;
+
+	uiSound.Play();
+}
+
 function PlayHighscoreSound() {
 	if(!sound.isOn)
 		return;
@@ -69,9 +77,25 @@ function PlayHighscoreSound() {
 	highscoreSound.Play();
 }
 
+function PlayScoreSound() {
+	if(!sound.isOn)
+		return;
+		
+	scoreSound.Play();
+}
+
+function PlayMissedSound() {
+	if(!sound.isOn)
+		return;
+		
+	missedSound.Play();
+}
+
 function ToggleSound() {
 	
 	PlayerPrefs.SetString("sound", sound.isOn ? "ON" : "OFF");
+	
+	PlayUiSound();
 	
 	if(!sound.isOn) {
 		backgroundSoundTrack.Stop();

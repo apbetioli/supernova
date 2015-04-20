@@ -8,9 +8,10 @@ var playerAnimator : Animator;
 var isDead = false;
 var isRunning = false;
 var ui : UIController;
-var scoreCounterController: ScoreCounterController;
-var ghost : GhostController;
+var garbageCollector: GarbageCollectorController;
 var analytics : CustomEvents;
+var idle : float = 0;
+var recover : int = 0;
 
 function Start() {
 	score = 0;
@@ -18,12 +19,26 @@ function Start() {
 	analytics = this.GetComponent("CustomEvents");
 }
 
+function Update() {
+	if(isDead || !isRunning)
+		return;
+		
+	if (idle > 2) {
+		Missed("Timeout");
+		idle = 0;
+	}
+		
+	idle += Time.deltaTime * Level();
+}
+
 function OnTouch() {
 	if(isDead)
 		return;
-	
+		
 	if(!isRunning)
 		isRunning = true;
+		
+	idle = 0;
 	
 	ChangeRoadSideOrNot();
 }
@@ -39,7 +54,7 @@ function ChangeRoadSideOrNot() {
 	
 	transform.position.x *= multiplier;
 	
-	scoreCounterController.transform.position.x = -transform.position.x;
+	garbageCollector.transform.position.x = -transform.position.x;
 }
 
 function OnTriggerEnter2D(col: Collider2D) {
@@ -50,12 +65,7 @@ function OnTriggerEnter2D(col: Collider2D) {
 		Die("Enemy");
 		return;
 	}
-	
-	if(col.gameObject.tag == "Ghost") {
-		Die("Ghost");
-		return;
-	}
-	
+
 	if(col.gameObject.tag == "Collect") {
 		AddScore();
 		Destroy(col.gameObject);
@@ -63,19 +73,29 @@ function OnTriggerEnter2D(col: Collider2D) {
 	}
 	
 	if(col.gameObject.tag == "Filler") {
-		Missed();
+		Missed("Missed");
 		return;
 	}
 }
 
-function Missed() {
+function Missed(by) {
+	ui.PlayMissedSound();
+
+	recover = 0;
 	missedPlanets++;
-	if(missedPlanets == 1)
+	
+	TriggerMissed(by);
+}
+
+function TriggerMissed(by) {
+	if(missedPlanets == 0)
+		playerAnimator.SetTrigger("White");
+	else if(missedPlanets == 1)
 		playerAnimator.SetTrigger("Yellow");
 	else if(missedPlanets == 2)
 		playerAnimator.SetTrigger("Red");
 	else	
-		Die("Missed");
+		Die(by);
 }
 
 function Die(by) {
@@ -90,7 +110,7 @@ function Die(by) {
 	}
 
 	isDead = true;
-	playerAnimator.SetTrigger("Death");
+	playerAnimator.SetTrigger("Supernova");
 }
 
 function isIdle() {
@@ -103,10 +123,23 @@ function AddScore () {
 
 	score++;
 	
+	Heal();		
+	
 	ui.AdjustPitch();
+	ui.PlayScoreSound();
 }
 
 function Level() {
-	return initialLevel + score / 20;
+	return initialLevel + score / 10;
 }
 
+function Heal() {
+	recover++;
+	
+	if(recover == 10 && missedPlanets > 0) {
+		recover = 0;
+		missedPlanets--;
+		TriggerMissed("Heal");
+		ui.PlayMissedSound();
+	}
+}
