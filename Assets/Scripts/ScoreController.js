@@ -8,14 +8,13 @@ function Update () {
 	scoreText.text = "" + player.score;
 	
 	if(player.isDead) {
-		gameOverScoreText.text = "score: " + player.score + "\n";
+		gameOverScoreText.text = "score: " + player.score + "\nbest : " + player.highscore;
 		
 		if(player.score >= player.highscore) {
-			gameOverScoreText.text += "NEW ";
+			gameOverScoreText.text = "NEW RECORD: " + player.score;
 			gameOverScoreText.color = Color.cyan;
 		}
 		
-		gameOverScoreText.text += "best : " + player.highscore;
 	}
 
 }

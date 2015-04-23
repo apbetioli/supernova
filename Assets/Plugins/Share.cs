@@ -38,7 +38,7 @@ public class Share : MonoBehaviour {
 			AndroidJavaClass uriClass = new AndroidJavaClass("android.net.Uri");
 			AndroidJavaObject uriObject = uriClass.CallStatic<AndroidJavaObject>("parse","file://" + destination);
 			intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_STREAM"), uriObject);
-			intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_TEXT"), score + " in your #planetscollection. Can you collect more? http://planetscollection.com");
+			intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_TEXT"), score + " planets in #supernova. http://supernova.com");
 			//intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_SUBJECT"), "SUBJECT");
 			intentObject.Call<AndroidJavaObject>("setType", "image/jpeg");
 			AndroidJavaClass unity = new AndroidJavaClass("com.unity3d.player.UnityPlayer");

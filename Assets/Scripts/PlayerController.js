@@ -13,6 +13,8 @@ var analytics : CustomEvents;
 var idle : float = 0;
 var recover : int = 0;
 
+var levelScore : int;
+
 function Start() {
 	score = 0;
 	highscore = PlayerPrefs.GetInt("highscore", 0);
@@ -23,12 +25,12 @@ function Update() {
 	if(isDead || !isRunning)
 		return;
 		
-	if (idle > 2) {
+	if (idle >= 1.5) {
 		Missed("Timeout");
 		idle = 0;
 	}
 		
-	idle += Time.deltaTime * Level();
+	idle += Time.deltaTime;
 }
 
 function OnTouch() {
@@ -37,7 +39,7 @@ function OnTouch() {
 		
 	if(!isRunning)
 		isRunning = true;
-		
+	
 	idle = 0;
 	
 	ChangeRoadSideOrNot();
@@ -58,9 +60,6 @@ function ChangeRoadSideOrNot() {
 }
 
 function OnTriggerEnter2D(col: Collider2D) {
-	if(isDead)
-		return;
-	
 	if(col.gameObject.tag == "Enemy") {
 		Die("Enemy");
 		return;
@@ -130,13 +129,18 @@ function AddScore () {
 }
 
 function Level() {
-	return initialLevel + score / 10;
+	return initialLevel + score / levelScore;
+}
+
+function LevelUp() {
+	var mod = (score % levelScore) == 0;
+	return Level() > 1 && mod;
 }
 
 function Heal() {
 	recover++;
 	
-	if(recover == 10 && missedPlanets > 0) {
+	if(recover == 4+Level() && missedPlanets > 0) {
 		recover = 0;
 		missedPlanets--;
 		TriggerMissed("Heal");

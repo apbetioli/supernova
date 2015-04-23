@@ -53,7 +53,6 @@
      <Compile Include="Assets\Scripts\ObjectDestroyerController.js" />
      <Compile Include="Assets\Scripts\ObjectSpawnerController.js" />
      <Compile Include="Assets\Scripts\PlayerController.js" />
-     <Compile Include="Assets\Scripts\SceneryController.js" />
      <Compile Include="Assets\Scripts\ScoreController.js" />
      <Compile Include="Assets\Scripts\ShareButtonController.js" />
      <Compile Include="Assets\Scripts\UIController.js" />
