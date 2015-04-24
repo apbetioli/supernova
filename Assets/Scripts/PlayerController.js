@@ -13,12 +13,15 @@ var analytics : CustomEvents;
 var idle : float = 0;
 var recover : int = 0;
 
+var targetPositionX : float;
+
 var levelScore : int;
 
 function Start() {
 	score = 0;
 	highscore = PlayerPrefs.GetInt("highscore", 0);
 	analytics = this.GetComponent("CustomEvents");
+	targetPositionX = transform.position.x;
 }
 
 function Update() {
@@ -31,6 +34,8 @@ function Update() {
 	}
 		
 	idle += Time.deltaTime;
+	
+	transform.position.x = Mathf.Lerp(transform.position.x, targetPositionX, 25 * Time.deltaTime);
 }
 
 function OnTouch() {
@@ -54,9 +59,9 @@ function ChangeRoadSideOrNot() {
 		
 	var multiplier = newSide * playerSide;
 	
-	transform.position.x *= multiplier;
+	targetPositionX *= multiplier;
 	
-	garbageCollector.transform.position.x = -transform.position.x;
+	garbageCollector.transform.position.x = -targetPositionX;
 }
 
 function OnTriggerEnter2D(col: Collider2D) {
@@ -102,6 +107,8 @@ function Die(by) {
 		return;
 		
 	analytics.Death(score, by);
+	
+	updateTotalScore();
 		
 	if(score > highscore) {
 		highscore = score;
@@ -110,6 +117,12 @@ function Die(by) {
 
 	isDead = true;
 	playerAnimator.SetTrigger("Supernova");
+}
+
+function updateTotalScore() {
+	var totalScore = PlayerPrefs.GetInt("totalscore", 0) + score;
+	PlayerPrefs.SetInt("totalscore", totalScore);
+	Debug.Log("Total score: " + totalScore);
 }
 
 function isIdle() {
