@@ -48,7 +48,6 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BackgroundController.js" />
      <Compile Include="Assets\Scripts\EnemyController.js" />
-     <Compile Include="Assets\Scripts\GarbageCollectorController.js" />
      <Compile Include="Assets\Scripts\GhostController.js" />
      <Compile Include="Assets\Scripts\ObjectDestroyerController.js" />
      <Compile Include="Assets\Scripts\ObjectSpawnerController.js" />

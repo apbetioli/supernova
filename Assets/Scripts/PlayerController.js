@@ -8,7 +8,6 @@ var playerAnimator : Animator;
 var isDead = false;
 var isRunning = false;
 var ui : UIController;
-var garbageCollector: GarbageCollectorController;
 var analytics : CustomEvents;
 var idle : float = 0;
 var recover : int = 0;
@@ -60,8 +59,6 @@ function ChangeRoadSideOrNot() {
 	var multiplier = newSide * playerSide;
 	
 	targetPositionX *= multiplier;
-	
-	garbageCollector.transform.position.x = -targetPositionX;
 }
 
 function OnTriggerEnter2D(col: Collider2D) {
