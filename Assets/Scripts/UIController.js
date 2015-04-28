@@ -109,4 +109,3 @@ function ToggleSound() {
 function AdjustPitch() {
 	backgroundSoundTrack.pitch = 1.0 + (player.Level() - 1) / 100.0;
 }
-

@@ -2,15 +2,17 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="PlayerController.js">
     <Files>
-      <File FileName="ObjectDestroyerController.js" Line="1" Column="1" />
-      <File FileName="PlayerController.js" Line="71" Column="14" />
-      <File FileName="..\Plugins\Share.cs" Line="1" Column="1" />
-      <File FileName="ScoreController.js" Line="1" Column="1" />
-      <File FileName="ShareButtonController.js" Line="1" Column="1" />
-      <File FileName="UIController.js" Line="1" Column="1" />
-      <File FileName="ObjectSpawnerController.js" Line="1" Column="1" />
-      <File FileName="..\Plugins\CustomEvents.cs" Line="1" Column="1" />
+      <File FileName="UIController.js" Line="111" Column="2" />
+      <File FileName="PlayerController.js" Line="17" Column="16" />
+      <File FileName="RateButtonController.js" Line="10" Column="13" />
       <File FileName="EnemyController.js" Line="1" Column="1" />
+      <File FileName="..\GooglePlayGames\BasicApi\PlayGamesClientConfiguration.cs" Line="31" Column="57" />
+      <File FileName="..\GooglePlayGames\ISocialPlatform\PlayGamesPlatform.cs" Line="80" Column="65" />
+      <File FileName="UnityAnalyticsIntegration.cs" Line="1" Column="1" />
+      <File FileName="..\GooglePlayGames\Platforms\PlayGamesClientFactory.cs" Line="1" Column="1" />
+      <File FileName="..\Plugins\Share.cs" Line="1" Column="1" />
+      <File FileName="..\Plugins\CustomEvents.cs" Line="1" Column="1" />
+      <File FileName="LeaderboardButtonController.cs" Line="7" Column="41" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

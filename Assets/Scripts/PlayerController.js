@@ -11,16 +11,20 @@ var ui : UIController;
 var analytics : CustomEvents;
 var idle : float = 0;
 var recover : int = 0;
-
 var targetPositionX : float;
-
 var levelScore : int;
+
+var authenticated : boolean;
 
 function Start() {
 	score = 0;
 	highscore = PlayerPrefs.GetInt("highscore", 0);
 	analytics = this.GetComponent("CustomEvents");
 	targetPositionX = transform.position.x;
+	
+	Social.localUser.Authenticate(function(success){
+		authenticated = success;
+	});
 }
 
 function Update() {
@@ -103,17 +107,28 @@ function Die(by) {
 	if(isDead) 
 		return;
 		
-	analytics.Death(score, by);
+	isDead = true;
+	playerAnimator.SetTrigger("Supernova");
 	
-	updateTotalScore();
-		
 	if(score > highscore) {
 		highscore = score;
 		PlayerPrefs.SetInt("highscore", score);
 	}
+		
+	analytics.Death(score, by);
 
-	isDead = true;
-	playerAnimator.SetTrigger("Supernova");
+	updateDeathStatistics(by);
+	updateTotalScore();
+
+	if(authenticated) {
+		Social.ReportScore(highscore, "CgkI-K6jy4kWEAIQBw", function(success){
+		});
+	}
+}
+
+function updateDeathStatistics(by) {
+	var deaths = PlayerPrefs.GetInt("DeathBy" + by, 0);
+	PlayerPrefs.SetInt("DeathBy" + by, deaths+1);
 }
 
 function updateTotalScore() {
