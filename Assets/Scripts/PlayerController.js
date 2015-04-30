@@ -121,8 +121,7 @@ function Die(by) {
 	updateTotalScore();
 
 	if(authenticated) {
-		Social.ReportScore(highscore, "CgkI-K6jy4kWEAIQBw", function(success){
-		});
+		Social.ReportScore(score, "CgkI-K6jy4kWEAIQBw", function(success){});
 	}
 }
 

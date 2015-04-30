@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\RateButtonController.js" />
      <Compile Include="Assets\Scripts\ScoreController.js" />
      <Compile Include="Assets\Scripts\ShareButtonController.js" />
+     <Compile Include="Assets\Scripts\TrelloButtonController.js" />
      <Compile Include="Assets\Scripts\UIController.js" />
      <None Include="Assets\Plugins\Android\google-play-services_lib\res\values-iw\common_strings.xml" />
      <None Include="Assets\GooglePlayGames\Editor\projsettings.txt" />

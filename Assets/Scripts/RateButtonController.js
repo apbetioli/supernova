@@ -1,7 +1,12 @@
 ﻿#pragma strict
 
 function Start () {
-	this.active = PlayerPrefs.GetInt("ShowRate", 1) == 1;
+	this.active = PlayerPrefs.GetInt("ShowRate", 1) == 0;
+}
+
+function Update() {
+	if(this.active)
+		this.active = Random.Range(0, 10) >= 5;
 }
 
 function Rate() {
