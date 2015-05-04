@@ -13,7 +13,6 @@ var idle : float = 0;
 var recover : int = 0;
 var targetPositionX : float;
 var levelScore : int;
-
 var authenticated : boolean;
 
 function Start() {
@@ -120,9 +119,8 @@ function Die(by) {
 	updateDeathStatistics(by);
 	updateTotalScore();
 
-	if(authenticated) {
+	if(authenticated) 
 		Social.ReportScore(score, "CgkI-K6jy4kWEAIQBw", function(success){});
-	}
 }
 
 function updateDeathStatistics(by) {
@@ -134,6 +132,8 @@ function updateTotalScore() {
 	var totalScore = PlayerPrefs.GetInt("totalscore", 0) + score;
 	PlayerPrefs.SetInt("totalscore", totalScore);
 	Debug.Log("Total score: " + totalScore);
+	if(authenticated) 
+		Social.ReportScore(totalScore, "CgkI-K6jy4kWEAIQCA", function(success){});
 }
 
 function isIdle() {

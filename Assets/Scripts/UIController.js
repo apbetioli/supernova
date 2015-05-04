@@ -9,7 +9,7 @@ var scoreSound: AudioSource;
 var uiSound: AudioSource;
 var missedSound: AudioSource;
 var scoreText : UI.Text;
-
+var pauseScreen : GameObject;
 var player : PlayerController;
 var spawner : ObjectSpawnerController;
 
@@ -18,18 +18,22 @@ function Start() {
 	PlayBackgroundSoundTrack();
 }
 
-function Update () {	
-	if (Input.GetKeyDown(KeyCode.Escape))
-		Application.Quit(); 		
-		
-	if(Input.GetMouseButtonDown(0)) {
-		player.OnTouch();
-		spawner.OnTouch();
+function Update () {
+	if (Input.GetKeyDown(KeyCode.Escape)) {
+		HandleExit();
+		return;
 	}
 	
 	if(player.isDead) {
 		animator.SetTrigger("GameOver");
 		return;
+	}
+	
+	if(Input.GetMouseButtonDown(0)) {
+		if(IsPaused())
+			Pause(false);
+		else 
+			SendOnTouchEvent();
 	}
 
 	if(player.score > player.highscore) {
@@ -38,14 +42,53 @@ function Update () {
 		return;
 	}
 	
-	if(player.isRunning) {
+	if(player.isRunning && !IsPaused()) {
 		animator.SetTrigger("Start");
 		return;
 	}
-}		
+}
 
 function Play() {
 	Application.LoadLevel("race");
+}
+
+function SendOnTouchEvent() {
+	var objects : GameObject[] = FindObjectsOfType(GameObject);
+	for(var i = 0; i < objects.length; i++) {
+		objects[i].SendMessage ("OnTouch", SendMessageOptions.DontRequireReceiver);
+	}
+}
+
+function HandleExit() {
+	if(IsPaused() || player.isDead)
+		Application.Quit();
+	else
+		Pause(true);	
+}
+
+function IsPaused() {
+	return Time.timeScale == 0;
+}
+
+function Pause(pause : boolean) {
+	if(player.isDead)
+		return;
+
+	pauseScreen.SetActive(pause);
+	
+	if(pause) {
+		Time.timeScale = 0;
+		backgroundSoundTrack.pitch = 0;
+	} else {
+		Time.timeScale = 1;
+		backgroundSoundTrack.pitch = 1;
+	}
+}
+
+function OnApplicationPause(pause : boolean) {
+	if(pause) {
+		Pause(pause);
+	}
 }
 
 function PlayBackgroundSoundTrack() {
