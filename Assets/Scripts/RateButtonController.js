@@ -1,5 +1,7 @@
 ﻿#pragma strict
 
+var active = false;
+
 function Start () {
 	this.active = PlayerPrefs.GetInt("ShowRate", 1) == 0;
 }
