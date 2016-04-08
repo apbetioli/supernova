@@ -2,7 +2,6 @@
 using System.Collections;
 using System.IO;
 
-// www.daniel4d.com
 public class Share : MonoBehaviour {
 
 	private bool isProcessing = false;
@@ -26,7 +25,7 @@ public class Share : MonoBehaviour {
 		byte[] dataToSave = screenTexture.EncodeToPNG();
 		
 		string destination = Path.Combine(Application.persistentDataPath,System.DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".png");
-		Debug.Log(destination);
+		Debug.Log("Generating screenshot at " + destination);
 		
 		File.WriteAllBytes(destination, dataToSave);
 		
@@ -38,9 +37,8 @@ public class Share : MonoBehaviour {
 			AndroidJavaClass uriClass = new AndroidJavaClass("android.net.Uri");
 			AndroidJavaObject uriObject = uriClass.CallStatic<AndroidJavaObject>("parse","file://" + destination);
 			intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_STREAM"), uriObject);
-			intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_TEXT"), score + " planets in Supernova. Can you get more? https://play.google.com/store/apps/details?id=com.cosmicgardenlabs.supernova");
-			//intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_SUBJECT"), "SUBJECT");
-			intentObject.Call<AndroidJavaObject>("setType", "image/jpeg");
+			intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_TEXT"), score + " planets in Supernova. Can you get more?");
+			intentObject.Call<AndroidJavaObject>("setType", "image/png");
 			AndroidJavaClass unity = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
 			AndroidJavaObject currentActivity = unity.GetStatic<AndroidJavaObject>("currentActivity");
 			
