@@ -7,14 +7,17 @@ public class RateButton : MonoBehaviour {
 	public string marketURL = "market://details?id=com.cosmicgardenlabs.supernova";
 
 	void Start () {
-		enabled = PlayerPrefs.GetInt("ShowRate", 1) == 0;
+		#if UNITY_ANDROID
+			enabled = true;	
+		#else
+			enabled = false;	
+		#endif
 	}
 
 	public void Open() {
 		Application.OpenURL(marketURL);
-		PlayerPrefs.SetInt("ShowRate", 0);
+		/* Once the rate is done we can hide the button */
 		enabled = false;
 	}
-
 
 }

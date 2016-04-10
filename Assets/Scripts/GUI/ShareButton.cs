@@ -7,8 +7,11 @@ public class ShareButton : MonoBehaviour {
 
 	public void Open () {
 		#if UNITY_ANDROID
+			enabled = true;
 			Share shareCs = GetComponent<Share>();
-			shareCs.ShareIt(player.score);
+			shareCs.ShareIt(player.Score());
+		#else
+			enabled = false;
 		#endif
 	}
 }

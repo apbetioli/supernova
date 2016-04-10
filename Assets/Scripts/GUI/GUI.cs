@@ -13,8 +13,9 @@ public class GUI : MonoBehaviour {
 	public AudioSource missedSound;
 	public Text scoreText;
 	public GameObject pauseScreen;
-	public Player player; 
 	public ItemSpawner spawner;
+
+	public Player player; 
 
 	Animator animator;
 
@@ -30,7 +31,7 @@ public class GUI : MonoBehaviour {
 			return;
 		}
 
-		if(player.isDead) {
+		if(player.IsDead()) {
 			animator.SetTrigger("GameOver");
 			return;
 		}
@@ -42,13 +43,13 @@ public class GUI : MonoBehaviour {
 				SendOnTouchEvent();
 		}
 
-		if(player.score > player.highscore) {
+		if(player.Score() > player.Highscore()) {
 			animator.SetTrigger("HighScore");
 			scoreText.color = Color.cyan;
 			return;
 		}
 
-		if(player.isRunning && !IsPaused()) {
+		if(player.IsRunning() && !IsPaused()) {
 			animator.SetTrigger("Start");
 			return;
 		}
@@ -66,7 +67,7 @@ public class GUI : MonoBehaviour {
 	}
 
 	void HandleExit() {
-		if(IsPaused() || player.isDead)
+		if(IsPaused() || player.IsDead())
 			Application.Quit();
 		else
 			Pause(true);	
@@ -77,7 +78,7 @@ public class GUI : MonoBehaviour {
 	}
 
 	void Pause(bool pause) {
-		if(player.isDead)
+		if(player.IsDead())
 			return;
 
 		pauseScreen.SetActive(pause);
@@ -92,9 +93,7 @@ public class GUI : MonoBehaviour {
 	}
 
 	void OnApplicationPause(bool pause) {
-		if(pause) {
-			Pause(pause);
-		}
+		Pause(pause);
 	}
 
 	void PlayBackgroundSoundTrack() {
@@ -141,7 +140,7 @@ public class GUI : MonoBehaviour {
 		if(!sound.isOn) {
 			backgroundSoundTrack.Stop();
 		} else {
-			if(!player.isDead)
+			if(! player.IsDead())
 				backgroundSoundTrack.Play();
 		}
 

@@ -9,13 +9,13 @@ public class Score : MonoBehaviour {
 	public Text gameOverScoreText;
 
 	void Update () {
-		scoreText.text = "" + player.score;
+		scoreText.text = "" + player.Score();
 
-		if(player.isDead) {
-			gameOverScoreText.text = "score: " + player.score + "\nbest : " + player.highscore;
+		if(player.IsDead()) {
+			gameOverScoreText.text = "score: " + player.Score() + "\nbest : " + player.Highscore();
 
-			if(player.score >= player.highscore) {
-				gameOverScoreText.text = "NEW RECORD: " + player.score;
+			if(player.Score() >= player.Highscore()) {
+				gameOverScoreText.text = "NEW RECORD: " + player.Score();
 				gameOverScoreText.color = Color.cyan;
 			}
 

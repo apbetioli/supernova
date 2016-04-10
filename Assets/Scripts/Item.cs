@@ -4,32 +4,34 @@ using System.Collections;
 public class Item : MonoBehaviour {
 
 	public float step = 1f;
-	public float rotationVelocity = Random.Range(0f, 0.5f);
+	public float rotationVelocity = 0.2f;
 
-	Player player;
-	float positiony;
+	protected Player player;
+	float yPosition;
 
 	void Awake() {
-		player = GameObject.Find("Player").GetComponent<Player>();
-		if(player == null) 
+		player = FindObjectOfType<Player>();
+		if(player == null) {
 			Debug.LogError("Could not find the Player");
+			enabled = false;
+		}
 	}
 		
 	void Start () {
-		positiony = transform.position.y;
+		yPosition = transform.position.y;
 	}
 
 	void Update () {
 		transform.Rotate(0, 0, -rotationVelocity * Time.deltaTime * transform.position.x);
 
 		Vector2 pos = transform.position;
-		pos.y = Mathf.Lerp(pos.y, positiony, 5 * step * Time.deltaTime);
+		pos.y = Mathf.Lerp(pos.y, yPosition, 5 * step * Time.deltaTime);
 		transform.position = pos;
 	}
 
 	void OnTouch() {
-		if(!player.isDead)
-			positiony = positiony - step;
+		if(!player.IsDead())
+			yPosition = yPosition - step;
 	}
 
 }

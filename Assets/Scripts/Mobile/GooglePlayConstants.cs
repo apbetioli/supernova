@@ -24,17 +24,6 @@
 
 public static class GooglePlayConstants
 {
-	/*
-        public const string achievement_enter_the_game_20_times = "CgkI-K6jy4kWEAIQBA"; // <GPGSID>
-        public const string achievement_collect_1000_planets = "CgkI-K6jy4kWEAIQAw"; // <GPGSID>
-        public const string achievement_share_your_planet_system_with_a_friend = "CgkI-K6jy4kWEAIQBQ"; // <GPGSID>
-        public const string achievement_collect_100_planets_in_one_shot = "CgkI-K6jy4kWEAIQAg"; // <GPGSID>
-        public const string leaderboard_total_number_of_planets = "CgkI-K6jy4kWEAIQCA"; // <GPGSID>
-        public const string achievement_collect_100_planets_in_one_shot_without_missing_one = "CgkI-K6jy4kWEAIQBg"; // <GPGSID>
-    */
         public const string leaderboard_best_starters = "CgkI-K6jy4kWEAIQBw"; // <GPGSID>
-
-		public const string marketURL = "market://details?id=com.cosmicgardenlabs.supernova";
-
 }
 

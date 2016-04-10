@@ -1,13 +1,22 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ItemSpawner.cs">
     <Files>
-      <File FileName="Assets\Scripts\Background.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Item.cs" Line="14" Column="22" />
-      <File FileName="Assets\Scripts\ItemDestroyer.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ItemSpawner.cs" Line="4" Column="25" />
-      <File FileName="Assets\Scripts\Player.cs" Line="112" Column="18" />
-      <File FileName="Assets\Scripts\GUI\GUI.cs" Line="16" Column="22" />
+      <File FileName="Assets\Scripts\Player.cs" Line="95" Column="1" />
+      <File FileName="Assets\Scripts\PlayerHealth.cs" Line="36" Column="1" />
+      <File FileName="Assets\Scripts\PlayerMovement.cs" Line="36" Column="1" />
+      <File FileName="Assets\Scripts\GUI\GUI.cs" Line="34" Column="17" />
+      <File FileName="Assets\Scripts\BlackHole.cs" Line="7" Column="1" />
+      <File FileName="Assets\Scripts\ItemSpawner.cs" Line="81" Column="29" />
+      <File FileName="Assets\Scripts\Planet.cs" Line="7" Column="1" />
+      <File FileName="Assets\Scripts\GUI\ShareButton.cs" Line="12" Column="4" />
+      <File FileName="Assets\Scripts\Mobile\Share.cs" Line="13" Column="4" />
+      <File FileName="Assets\Scripts\Mobile\GooglePlayLeaderboard.cs" Line="26" Column="3" />
+      <File FileName="Assets\Scripts\PlayerScore.cs" Line="20" Column="1" />
+      <File FileName="Assets\Scripts\Item.cs" Line="18" Column="1" />
+      <File FileName="Assets\Scripts\ItemDestroyer.cs" Line="7" Column="15" />
+      <File FileName="Assets\Scripts\Services\Services.cs" Line="12" Column="1" />
+      <File FileName="Assets\Scripts\Filler.cs" Line="7" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

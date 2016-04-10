@@ -47,7 +47,7 @@ public class ItemSpawner : MonoBehaviour {
 	}
 
 	void OnTouch() {
-		if(player.isDead)
+		if(player.IsDead())
 			return;
 
 		Spawn();
@@ -72,6 +72,7 @@ public class ItemSpawner : MonoBehaviour {
 		float scale = Random.Range(0.3f, 1.0f);
 		localScale.x = scale;
 		localScale.y = scale;
+		instance.transform.localScale = localScale;
 		return instance;
 	}
 
