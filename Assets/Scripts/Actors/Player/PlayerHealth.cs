@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace Supernova {
+
 public class PlayerHealth : MonoBehaviour {
 
 	public int healWhenCollected = 10;
@@ -34,5 +36,7 @@ public class PlayerHealth : MonoBehaviour {
 		heal = 0;
 		missedPlanets++;
 	}
+
+}
 
 }

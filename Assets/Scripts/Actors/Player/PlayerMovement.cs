@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace Supernova {
+
 public class PlayerMovement : MonoBehaviour {
 
 	public float speed = 25f;
@@ -33,5 +35,7 @@ public class PlayerMovement : MonoBehaviour {
 
 		targetPositionX *= multiplier;
 	}
+
+}
 
 }

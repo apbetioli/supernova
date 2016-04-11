@@ -2,6 +2,8 @@
 using System.Collections;
 using System.IO;
 
+namespace Supernova {
+
 public class Share : MonoBehaviour {
 
 	private bool isProcessing = false;
@@ -64,4 +66,6 @@ public class Share : MonoBehaviour {
 
 		currentActivity.Call("startActivity", intentObject);
 	}
+}
+
 }

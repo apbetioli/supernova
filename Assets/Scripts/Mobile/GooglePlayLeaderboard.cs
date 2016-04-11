@@ -5,6 +5,8 @@ using System.Collections;
 	using GooglePlayGames;
 #endif
 
+namespace Supernova {
+
 public class GooglePlayLeaderboard : MonoBehaviour {
 	
 	public void Activate() {
@@ -35,4 +37,6 @@ public class GooglePlayLeaderboard : MonoBehaviour {
 			});
 		#endif
 	}
+}
+
 }

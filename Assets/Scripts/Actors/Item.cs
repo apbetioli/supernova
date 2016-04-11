@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Item : MonoBehaviour {
+namespace Supernova {
+
+public abstract class Item : MonoBehaviour {
 
 	public float step = 1f;
 	public float rotationVelocity = 0.2f;
@@ -33,5 +35,7 @@ public class Item : MonoBehaviour {
 		if(!player.IsDead())
 			yPosition = yPosition - step;
 	}
+
+}
 
 }

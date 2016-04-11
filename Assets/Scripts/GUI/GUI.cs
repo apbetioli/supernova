@@ -3,17 +3,15 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 
+namespace Supernova {
+
 public class GUI : MonoBehaviour {
 
 	public Toggle sound;
 	public AudioSource backgroundSoundTrack;
-	public AudioSource deathSound;
-	public AudioSource highscoreSound;
 	public AudioSource uiSound;
-	public AudioSource missedSound;
 	public Text scoreText;
 	public GameObject pauseScreen;
-	public ItemSpawner spawner;
 
 	public Player player; 
 
@@ -21,7 +19,8 @@ public class GUI : MonoBehaviour {
 
 	void Start() {
 		animator = GetComponent<Animator>();
-		sound.isOn = PlayerPrefs.GetString("sound", "ON") == "ON";
+		sound.isOn = Settings.IsSoundOn();
+
 		PlayBackgroundSoundTrack();
 	}
 
@@ -103,14 +102,6 @@ public class GUI : MonoBehaviour {
 		backgroundSoundTrack.Play();
 	}
 
-	void PlayDeathSound() {
-		if(!sound.isOn)
-			return;
-
-		deathSound.Play();
-		backgroundSoundTrack.Stop();
-	}
-
 	void PlayUiSound() {
 		if(!sound.isOn)
 			return;
@@ -118,22 +109,8 @@ public class GUI : MonoBehaviour {
 		uiSound.Play();
 	}
 
-	void PlayHighscoreSound() {
-		if(!sound.isOn)
-			return;
-
-		highscoreSound.Play();
-	}
-
-	public void PlayMissedSound() {
-		if(!sound.isOn)
-			return;
-
-		missedSound.Play();
-	}
-
 	void ToggleSound() {
-		PlayerPrefs.SetString("sound", sound.isOn ? "ON" : "OFF");
+		Settings.SetSound(sound.isOn);
 
 		PlayUiSound();
 
@@ -145,5 +122,7 @@ public class GUI : MonoBehaviour {
 		}
 
 	}
+
+}
 
 }

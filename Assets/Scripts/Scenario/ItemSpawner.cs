@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace Supernova {
+
 public class ItemSpawner : MonoBehaviour {
 
 	public Player player;
@@ -80,4 +82,6 @@ public class ItemSpawner : MonoBehaviour {
 		int rand = Random.Range(-10, 9);
 		return rand >= 0 ? 2 : -2;
 	}
+}
+
 }

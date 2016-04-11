@@ -1,9 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace Supernova {
+
 public class ShareButton : MonoBehaviour {
 
 	public Player player;
+	public bool onlyMobile = true;
+
+	void Awake() {
+		gameObject.SetActive(onlyMobile ? Application.isMobilePlatform : true);		
+	}
 
 	public void Open () {
 		#if UNITY_ANDROID
@@ -14,4 +21,6 @@ public class ShareButton : MonoBehaviour {
 			enabled = false;
 		#endif
 	}
+}
+
 }

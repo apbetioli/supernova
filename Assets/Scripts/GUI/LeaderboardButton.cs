@@ -2,7 +2,11 @@
 using UnityEngine.SocialPlatforms;
 using System.Collections;
 
+namespace Supernova {
+
 public class LeaderboardButton : MonoBehaviour {
+
+	public bool onlyMobile = true;
 
 	GooglePlayLeaderboard leaderboard;
 
@@ -14,7 +18,7 @@ public class LeaderboardButton : MonoBehaviour {
 			return;
 		}
 
-		enabled = Application.isMobilePlatform;		
+		gameObject.SetActive(onlyMobile ? Application.isMobilePlatform : true);		
 	}
 
 	void Start() {
@@ -24,5 +28,7 @@ public class LeaderboardButton : MonoBehaviour {
 	public void Open() {
 		leaderboard.Open();
 	}
+
+}
 
 }

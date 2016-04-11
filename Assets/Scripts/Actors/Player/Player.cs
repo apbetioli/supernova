@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace Supernova {
+	
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(PlayerHealth))]
 [RequireComponent(typeof(PlayerScore))]
 [RequireComponent(typeof(PlayerMovement))]
 public class Player : MonoBehaviour {
+
+	public AudioSource deathSound;
+	public AudioSource missedSound;
 
 	Animator animator;
 	PlayerHealth playerHealth; 
@@ -60,6 +65,8 @@ public class Player : MonoBehaviour {
 	public void Missed(string by) {
 		if(IsDead())
 			return;
+
+		PlayMissedSound();
 		
 		playerHealth.Missed(by);
 		animator.SetInteger("MissedPlanets", playerHealth.missedPlanets); 
@@ -71,6 +78,8 @@ public class Player : MonoBehaviour {
 	public void Die(string by) {
 		if(IsDead())
 			return;
+
+		PlayDeathSound();
 
 		playerHealth.Die(by);
 		playerScore.Die(by);
@@ -100,5 +109,20 @@ public class Player : MonoBehaviour {
 		playerMovement.ChangeSideOrNot();
 	}
 
+	void PlayDeathSound() {
+		if(!Settings.IsSoundOn())
+			return;
+
+		deathSound.Play();
+	}
+
+	public void PlayMissedSound() {
+		if(!Settings.IsSoundOn())
+			return;
+
+		missedSound.Play();
+	}
+
+}
 
 }

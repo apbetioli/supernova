@@ -2,6 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 
+namespace Supernova {
+
 public class Score : MonoBehaviour {
 
 	public Player player;
@@ -22,5 +24,7 @@ public class Score : MonoBehaviour {
 		}
 
 	}
+
+}
 
 }

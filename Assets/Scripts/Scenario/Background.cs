@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace Supernova {
+
 public class Background : MonoBehaviour {
 	
 	public float velocity = 0.01f;
@@ -45,4 +47,6 @@ public class Background : MonoBehaviour {
 		offset.y = Mathf.Lerp(offset.y, offset.y + velocity*direction.y, Time.deltaTime);
 		material.mainTextureOffset = offset;
 	}
+}
+
 }
