@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
+#if UNITY_5_3
+using UnityEngine.SceneManagement;
+#endif
 
 namespace Supernova {
 
@@ -55,7 +57,11 @@ public class GUI : MonoBehaviour {
 	}
 
 	public void Play() {
-		SceneManager.LoadScene("Main");
+		#if UNITY_5_3
+			SceneManager.LoadScene("Main");
+		#else
+			Application.LoadLevel("Main");
+		#endif
 	}
 
 	void SendOnTouchEvent() {
