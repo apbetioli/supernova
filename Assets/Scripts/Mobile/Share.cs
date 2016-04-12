@@ -26,10 +26,10 @@ public class Share : MonoBehaviour {
 		try {
 			isProcessing = true;
 
-			string file = PrintScreen();
-			string text = score + " planets in Supernova. Can you get more?";
-
 			#if UNITY_ANDROID
+				string file = PrintScreen();
+				string text = score + " planets in Supernova. Can you get more?";
+
 				AndroidShare(file, text);
 			#endif
 

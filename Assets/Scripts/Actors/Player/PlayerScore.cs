@@ -19,14 +19,12 @@ public class PlayerScore : MonoBehaviour {
 		if(score > highscore) {
 			highscore = score;
 			PlayerPrefs.SetInt("highscore", score);
+			PlayHighscoreSound();
 		}
 	}
 
 	public void AddScore () {
 		score++;
-
-		if(score > highscore)
-			PlayHighscoreSound();
 	}
 
 	void PlayHighscoreSound() {
