@@ -3,40 +3,43 @@ using System.Collections;
 
 namespace Supernova {
 
-public class PlayerHealth : MonoBehaviour {
-
-	public int healWhenCollected = 10;
-
-	[HideInInspector]
-	public bool isDead;
-
-	[HideInInspector]
-	public int missedPlanets = 0;
-	
-	int heal = 0;
-
-	void Start() {
-		isDead = false;
-	}
-
-	public void Die(string by) {
-		isDead = true;
-	}
-
-	public void Heal() {
-		heal++;
-		heal %= healWhenCollected;
+	/*
+	 * The player health controller
+	 */ 
+	public class PlayerHealth : MonoBehaviour {
 		
-		if(heal == 0 && missedPlanets > 0) {
-			missedPlanets--;
+		[HideInInspector]
+		public bool isDead = false;
+		
+		// The amount of damage received
+		[HideInInspector]
+		public int damage = 0;
+		
+		// The healing counter
+		int healing = 0;
+
+		// The damage will be decreased when the healing counter reaches this value
+		public int healWhenCollected = 10;
+
+		public void Die() {
+			isDead = true;
 		}
-	}
 
-	public void Missed(string by) {
-		heal = 0;
-		missedPlanets++;
-	}
+		public void Heal() {
+			if(damage <= 0)
+				return;
+			
+			healing++;
+			healing %= healWhenCollected;
+			if(healing == 0)
+				damage--;
+		}
 
-}
+		public void TakeDamage() {
+			healing = 0;
+			damage++;
+		}
+
+	}
 
 }

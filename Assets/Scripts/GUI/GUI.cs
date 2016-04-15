@@ -7,128 +7,157 @@ using UnityEngine.SceneManagement;
 
 namespace Supernova {
 
-public class GUI : MonoBehaviour {
+	/*
+	 * User interface management.
+	 */ 
+	public class GUI : MonoBehaviour {
 
-	public Toggle sound;
-	public AudioSource backgroundSoundTrack;
-	public AudioSource uiSound;
-	public Text scoreText;
-	public GameObject pauseScreen;
+		// A button to on/off sounds
+		public Toggle sound;
 
-	public Player player; 
+		// The background soundtrack
+		public AudioSource backgroundSoundTrack;
 
-	Animator animator;
+		// The UI sound, that is played when a button is pressed
+		public AudioSource uiSound;
 
-	void Start() {
-		animator = GetComponent<Animator>();
-		sound.isOn = Settings.IsSoundOn();
+		// The score text in the top of the screen
+		public Text scoreText;
 
-		PlayBackgroundSoundTrack();
-	}
+		// The pause screen that appears when the application is backgrounded
+		public GameObject pauseScreen;
 
-	void Update () {
-		if (Input.GetKeyDown(KeyCode.Escape)) {
-			HandleExit();
-			return;
+		// The player
+		public Player player; 
+
+		// The animator of the GUI
+		Animator animator;
+
+		void Awake() {
+			animator = GetComponent<Animator>();
 		}
 
-		if(player.IsDead()) {
-			animator.SetTrigger("GameOver");
-			return;
+		void Start() {
+			sound.isOn = Settings.IsSoundOn();
+			PlayBackgroundSoundTrack();
 		}
 
-		if(Input.GetMouseButtonDown(0)) {
-			if(IsPaused())
-				Pause(false);
-			else 
-				SendOnTouchEvent();
+		void Update () {
+			// If the exit button was pressed, then pause or exit
+			if (Input.GetKeyDown(KeyCode.Escape)) {
+				HandleExit();
+				return;
+			}
+
+			// Triggers the GameOver animation whether the player is dead or not 
+			if(player.IsDead()) {
+				animator.SetTrigger("GameOver");
+				return;
+			}
+
+			// Unpause or send touch event when the screen is touched
+			if(Input.GetMouseButtonDown(0)) {
+				if(IsPaused())
+					Pause(false);
+				else 
+					SendOnTouchEvent();
+			}
+
+			// The score text changes the color when the highscore is reached
+			if(player.Score() > player.Highscore()) {
+				animator.SetTrigger("HighScore");
+				scoreText.color = Color.cyan;
+				return;
+			}
+
+			// It has started
+			if(player.IsRunning() && !IsPaused()) {
+				animator.SetTrigger("Start");
+				return;
+			}
 		}
 
-		if(player.Score() > player.Highscore()) {
-			animator.SetTrigger("HighScore");
-			scoreText.color = Color.cyan;
-			return;
+		// Loads the scene. It's compatible from 5.0 to 5.3 versions of Unity.
+		public void Play() {
+			#if UNITY_5_3
+				SceneManager.LoadScene("Main");
+			#else
+				Application.LoadLevel("Main");
+			#endif
 		}
 
-		if(player.IsRunning() && !IsPaused()) {
-			animator.SetTrigger("Start");
-			return;
+		// Sends a global event, calling the method OnTouch of the classes
+		void SendOnTouchEvent() {
+			GameObject[] objects = FindObjectsOfType<GameObject>();
+			for(var i = 0; i < objects.Length; i++) {
+				objects[i].SendMessage ("OnTouch", SendMessageOptions.DontRequireReceiver);
+			}
 		}
-	}
 
-	public void Play() {
-		#if UNITY_5_3
-			SceneManager.LoadScene("Main");
-		#else
-			Application.LoadLevel("Main");
-		#endif
-	}
-
-	void SendOnTouchEvent() {
-		GameObject[] objects = FindObjectsOfType<GameObject>();
-		for(var i = 0; i < objects.Length; i++) {
-			objects[i].SendMessage ("OnTouch", SendMessageOptions.DontRequireReceiver);
+		// Pause or exit
+		void HandleExit() {
+			if(IsPaused() || player.IsDead())
+				Application.Quit();
+			else
+				Pause(true);	
 		}
-	}
 
-	void HandleExit() {
-		if(IsPaused() || player.IsDead())
-			Application.Quit();
-		else
-			Pause(true);	
-	}
-
-	bool IsPaused() {
-		return Time.timeScale == 0;
-	}
-
-	void Pause(bool pause) {
-		if(player.IsDead())
-			return;
-
-		pauseScreen.SetActive(pause);
-
-		if(pause) {
-			Time.timeScale = 0;
-			backgroundSoundTrack.pitch = 0;
-		} else {
-			Time.timeScale = 1;
-			backgroundSoundTrack.pitch = 1;
+		bool IsPaused() {
+			return Time.timeScale == 0;
 		}
-	}
 
-	void OnApplicationPause(bool pause) {
-		Pause(pause);
-	}
+		void Pause(bool pause) {
+			// Can't pause if the player is dead
+			if(player.IsDead())
+				return;
 
-	void PlayBackgroundSoundTrack() {
-		if(!sound.isOn)
-			return;
+			// Shows the pause screen
+			pauseScreen.SetActive(pause);
 
-		backgroundSoundTrack.Play();
-	}
+			// Stops everything
+			if(pause) {
+				Time.timeScale = 0;
+				backgroundSoundTrack.pitch = 0;
+			} else {
+				Time.timeScale = 1;
+				backgroundSoundTrack.pitch = 1;
+			}
+		}
 
-	void PlayUiSound() {
-		if(!sound.isOn)
-			return;
+		// Mobile event
+		void OnApplicationPause(bool pause) {
+			Pause(pause);
+		}
 
-		uiSound.Play();
-	}
+		void PlayBackgroundSoundTrack() {
+			if(!sound.isOn)
+				return;
 
-	void ToggleSound() {
-		Settings.SetSound(sound.isOn);
+			backgroundSoundTrack.Play();
+		}
 
-		PlayUiSound();
+		void PlayUiSound() {
+			if(!sound.isOn)
+				return;
 
-		if(!sound.isOn) {
-			backgroundSoundTrack.Stop();
-		} else {
-			if(! player.IsDead())
-				backgroundSoundTrack.Play();
+			uiSound.Play();
+		}
+
+		// Turns the sound on / off
+		void ToggleSound() {
+			Settings.SetSound(sound.isOn);
+
+			PlayUiSound();
+
+			if(!sound.isOn) {
+				backgroundSoundTrack.Stop();
+			} else {
+				if(! player.IsDead())
+					backgroundSoundTrack.Play();
+			}
+
 		}
 
 	}
-
-}
 
 }

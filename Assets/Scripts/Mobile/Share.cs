@@ -4,68 +4,73 @@ using System.IO;
 
 namespace Supernova {
 
-public class Share : MonoBehaviour {
+	/*
+	 * Opens a native window for sharing the game over screen with friends
+	 */
+	public class Share : MonoBehaviour {
 
-	private bool isProcessing = false;
+		private bool isProcessing = false;
 
-	public void ShareIt(float score) {
-		if(!Application.isMobilePlatform)  {
-			Debug.LogWarning("Share only available on mobile platform");
-			return;
+		public void ShareIt(float score) {
+			if(!Application.isMobilePlatform)  {
+				Debug.LogWarning("Share only available on mobile platform");
+				return;
+			}
+			
+			if(!isProcessing)
+				StartCoroutine( ShareScreenshot(score) );
 		}
 		
-		if(!isProcessing)
-			StartCoroutine( ShareScreenshot(score) );
-	}
-	
-	public IEnumerator ShareScreenshot(float score)
-	{
-		// Wait until the frame is rendered
-		yield return new WaitForEndOfFrame();
+		public IEnumerator ShareScreenshot(float score)
+		{
+			// Wait until the frame is rendered
+			yield return new WaitForEndOfFrame();
 
-		try {
-			isProcessing = true;
+			try {
+				isProcessing = true;
 
-			#if UNITY_ANDROID
-				string file = PrintScreen();
-				string text = score + " planets in Supernova. Can you get more?";
+				#if UNITY_ANDROID
+					string file = PrintScreen();
+					string text = score + " planets in Supernova. Can you get more?";
 
-				AndroidShare(file, text);
-			#endif
+					AndroidShare(file, text);
+				#endif
 
-		} finally {
-			isProcessing = false;
+			} finally {
+				isProcessing = false;
+			}
+		}
+
+		// Generates a print of the gameover screen
+		string PrintScreen() {
+			string file = Path.Combine(Application.persistentDataPath,System.DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".png");
+			Debug.Log("Generating screenshot at " + file);
+
+			Texture2D screenTexture = new Texture2D(Screen.width, Screen.height,TextureFormat.RGB24,true);
+			screenTexture.ReadPixels(new Rect(0f, 0f, Screen.width, Screen.height),0,0);
+			screenTexture.Apply();
+			byte[] dataToSave = screenTexture.EncodeToPNG();
+
+			File.WriteAllBytes(file, dataToSave);
+
+			return file;
+		}
+
+		// Opens the native android share window
+		void AndroidShare(string file, string text) {
+			AndroidJavaClass intentClass = new AndroidJavaClass("android.content.Intent");
+			AndroidJavaObject intentObject = new AndroidJavaObject("android.content.Intent");
+			intentObject.Call<AndroidJavaObject>("setAction", intentClass.GetStatic<string>("ACTION_SEND"));
+			AndroidJavaClass uriClass = new AndroidJavaClass("android.net.Uri");
+			AndroidJavaObject uriObject = uriClass.CallStatic<AndroidJavaObject>("parse","file://" + file);
+			intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_STREAM"), uriObject);
+			intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_TEXT"), text);
+			intentObject.Call<AndroidJavaObject>("setType", "image/png");
+			AndroidJavaClass unity = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+			AndroidJavaObject currentActivity = unity.GetStatic<AndroidJavaObject>("currentActivity");
+
+			currentActivity.Call("startActivity", intentObject);
 		}
 	}
-
-	string PrintScreen() {
-		string file = Path.Combine(Application.persistentDataPath,System.DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".png");
-		Debug.Log("Generating screenshot at " + file);
-
-		Texture2D screenTexture = new Texture2D(Screen.width, Screen.height,TextureFormat.RGB24,true);
-		screenTexture.ReadPixels(new Rect(0f, 0f, Screen.width, Screen.height),0,0);
-		screenTexture.Apply();
-		byte[] dataToSave = screenTexture.EncodeToPNG();
-
-		File.WriteAllBytes(file, dataToSave);
-
-		return file;
-	}
-
-	void AndroidShare(string file, string text) {
-		AndroidJavaClass intentClass = new AndroidJavaClass("android.content.Intent");
-		AndroidJavaObject intentObject = new AndroidJavaObject("android.content.Intent");
-		intentObject.Call<AndroidJavaObject>("setAction", intentClass.GetStatic<string>("ACTION_SEND"));
-		AndroidJavaClass uriClass = new AndroidJavaClass("android.net.Uri");
-		AndroidJavaObject uriObject = uriClass.CallStatic<AndroidJavaObject>("parse","file://" + file);
-		intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_STREAM"), uriObject);
-		intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_TEXT"), text);
-		intentObject.Call<AndroidJavaObject>("setType", "image/png");
-		AndroidJavaClass unity = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-		AndroidJavaObject currentActivity = unity.GetStatic<AndroidJavaObject>("currentActivity");
-
-		currentActivity.Call("startActivity", intentObject);
-	}
-}
 
 }

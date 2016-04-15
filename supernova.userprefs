@@ -1,15 +1,6 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Actors\Filler.cs">
-    <Files>
-      <File FileName="Assets\Scripts\Actors\Player\PlayerMovement.cs" Line="24" Column="3" />
-      <File FileName="Assets\Scripts\Services\Services.cs" Line="4" Column="1" />
-      <File FileName="Assets\Scripts\Actors\BlackHole.cs" Line="9" Column="28" />
-      <File FileName="Assets\Scripts\Actors\Filler.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Actors\Item.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Actors\Planet.cs" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
