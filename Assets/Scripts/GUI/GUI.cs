@@ -43,19 +43,19 @@ namespace Supernova {
 		}
 
 		void Update () {
-			// If the exit button was pressed, then pause or exit
+			// Paus or exit if the exit button was pressed
 			if (Input.GetKeyDown(KeyCode.Escape)) {
 				HandleExit();
 				return;
 			}
 
-			// Triggers the GameOver animation whether the player is dead or not 
+			// Triggers the GameOver animation if the player is dead
 			if(player.IsDead()) {
 				animator.SetTrigger("GameOver");
 				return;
 			}
 
-			// Unpause or send touch event when the screen is touched
+			// Unpause or send the touch event when the screen is touched
 			if(Input.GetMouseButtonDown(0)) {
 				if(IsPaused())
 					Pause(false);
@@ -63,7 +63,7 @@ namespace Supernova {
 					SendOnTouchEvent();
 			}
 
-			// The score text changes the color when the highscore is reached
+			// The score text has the color changed when the highscore is reached
 			if(player.Score() > player.Highscore()) {
 				animator.SetTrigger("HighScore");
 				scoreText.color = Color.cyan;
@@ -77,7 +77,7 @@ namespace Supernova {
 			}
 		}
 
-		// Loads the scene. It's compatible from 5.0 to 5.3 versions of Unity.
+		// Loads the scene
 		public void Play() {
 			#if UNITY_5_3
 				SceneManager.LoadScene("Main");

@@ -32,7 +32,7 @@ namespace Supernova {
 			#if UNITY_ANDROID
 				Social.localUser.Authenticate (success => {
 					if (success) {
-						PlayGamesPlatform.Instance.ShowLeaderboardUI(GooglePlayConstants.leaderboard_best_starters);
+						PlayGamesPlatform.Instance.ShowLeaderboardUI(GPGSIds.leaderboard_best_starters);
 
 					} else {
 						Debug.LogError("Could not authenticate with leaderboard");

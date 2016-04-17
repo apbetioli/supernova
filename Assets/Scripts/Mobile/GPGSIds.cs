@@ -21,11 +21,7 @@
 /// Resources.
 ///
 
-namespace Supernova {
-
-	public static class GooglePlayConstants
-	{
-	        public const string leaderboard_best_starters = "CgkI-K6jy4kWEAIQBw"; // <GPGSID>
-	}
-
+public static class GPGSIds
+{
+	public const string leaderboard_best_starters = "CgkI-K6jy4kWEAIQBw"; // <GPGSID>
 }
