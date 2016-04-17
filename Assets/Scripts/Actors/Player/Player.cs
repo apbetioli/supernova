@@ -4,8 +4,7 @@ using System.Collections;
 namespace Supernova {
 
 	/**
-	 * This is the main player control. 
-	 * It delegates the control to other scripts, mamnages animations and sounds.
+	 * This is the main player control. It delegates the control to other scripts, manages animations and sounds.
 	 */ 
 	[RequireComponent(typeof(Animator))]
 	[RequireComponent(typeof(PlayerHealth))]
@@ -14,7 +13,8 @@ namespace Supernova {
 
 	public class Player : MonoBehaviour {
 
-		public AudioSource deathSound; //The sound that is played when the player dies
+		public AudioSource scoreSound;  //The sound that is played when the player scores
+		public AudioSource deathSound;  //The sound that is played when the player dies
 		public AudioSource damageSound; //The sound that is played then the player misses a planet
 
 		Animator animator; 				
@@ -24,7 +24,7 @@ namespace Supernova {
 		Leaderboard leaderboard; 		
 		Analytics analytics;
 
-		//Configures the timeout when the player is idle causing a missed event
+		//Configures the timeout when the player is idle causing a damage event
 		public float idleTimeout = 1.5f;
 
 		//Counts the idle time
@@ -57,7 +57,7 @@ namespace Supernova {
 			IncrementIdleTime();
 		}
 
-		// Verifies if the idle time has excedded the idle timeout time, causing a missed event
+		// Verifies if the idle time has excedded the idle timeout time, causing a damage event
 		void VerifyTimeout() {
 			if (idle >= idleTimeout) {
 				TakeDamage("Timeout");
@@ -131,6 +131,7 @@ namespace Supernova {
 			playerHealth.Heal();
 			playerScore.AddScore();
 			animator.SetInteger("Damage", playerHealth.damage); 
+			PlayScoreSound();
 		}
 
 		// This method receives a touch event from the gui
@@ -146,6 +147,13 @@ namespace Supernova {
 				return;
 
 			deathSound.Play();
+		}
+
+		void PlayScoreSound() {
+			if(!Settings.IsSoundOn())
+				return;
+			
+			scoreSound.Play();
 		}
 
 		public void PlayDamageSound() {

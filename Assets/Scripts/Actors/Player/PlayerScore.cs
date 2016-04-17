@@ -4,7 +4,7 @@ using System.Collections;
 namespace Supernova {
 
 	/*
-	 * The score controller. That is, how good you are.
+	 * The score controller, i.e., how good you are.
 	 */ 
 	public class PlayerScore : MonoBehaviour {
 

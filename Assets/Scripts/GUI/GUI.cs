@@ -8,18 +8,19 @@ using UnityEngine.SceneManagement;
 namespace Supernova {
 
 	/*
-	 * User interface management.
+	 * Graphical user interface management.
 	 */ 
+	[RequireComponent(typeof(Animator))]
 	public class GUI : MonoBehaviour {
-
-		// A button to on/off sounds
-		public Toggle sound;
 
 		// The background soundtrack
 		public AudioSource backgroundSoundTrack;
 
 		// The UI sound, that is played when a button is pressed
 		public AudioSource uiSound;
+
+		// A button to on/off sounds
+		public Toggle sound;
 
 		// The score text in the top of the screen
 		public Text scoreText;
@@ -43,7 +44,7 @@ namespace Supernova {
 		}
 
 		void Update () {
-			// Paus or exit if the exit button was pressed
+			// Pauses or exits if the exit button was pressed
 			if (Input.GetKeyDown(KeyCode.Escape)) {
 				HandleExit();
 				return;
@@ -55,7 +56,7 @@ namespace Supernova {
 				return;
 			}
 
-			// Unpause or send the touch event when the screen is touched
+			// Unpauses or sends the touch event when the screen is touched
 			if(Input.GetMouseButtonDown(0)) {
 				if(IsPaused())
 					Pause(false);
@@ -94,7 +95,7 @@ namespace Supernova {
 			}
 		}
 
-		// Pause or exit
+		// Pauses or exits
 		void HandleExit() {
 			if(IsPaused() || player.IsDead())
 				Application.Quit();
@@ -107,7 +108,7 @@ namespace Supernova {
 		}
 
 		void Pause(bool pause) {
-			// Can't pause if the player is dead
+			// Don't pause if the player is dead
 			if(player.IsDead())
 				return;
 

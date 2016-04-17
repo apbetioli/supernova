@@ -10,7 +10,7 @@ namespace Supernova {
 
 		public Player player;
 
-		// If true, only show this button when on mobile platform
+		// If true, only shows this button when on mobile platform
 		public bool onlyMobile = true;
 
 		void Awake() {

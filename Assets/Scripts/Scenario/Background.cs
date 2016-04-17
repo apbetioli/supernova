@@ -4,7 +4,7 @@ using System.Collections;
 namespace Supernova {
 
 	/*
-	 * Controls the scrolling background stars and nebulas
+	 * Controls the scrolling backgrounds
 	 */ 
 	[RequireComponent(typeof(Material))]
 	public class Background : MonoBehaviour {

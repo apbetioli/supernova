@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	public float speed = 25f;
 
+	//Controls animation of the "tap to play" screen
 	[HideInInspector]
 	public bool isRunning = false;	
 

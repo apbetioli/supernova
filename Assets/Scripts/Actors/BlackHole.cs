@@ -4,12 +4,12 @@ using System.Collections;
 namespace Supernova {
 
 	/*
-	 * The BlackHole is the enemy of the supernova. If the star touches it, it's certainly death.
+	 * The BlackHole is the worst enemy of the star. If the star touches it, it's death certainly.
 	 */
 	public class BlackHole : Item {
 
 		void OnTriggerEnter2D(Collider2D col) {
-			if(col.tag == "Player") {
+			if(col.tag != null && col.tag == "Player") {
 				player.Die("BlackHole");
 			}
 		}

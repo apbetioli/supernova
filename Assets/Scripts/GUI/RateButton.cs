@@ -4,14 +4,14 @@ using System.Collections;
 namespace Supernova {
 
 	/*
-	 * Opens the Market URL when pressed for the user to rate the app
+	 * Opens the Market URL for the user to rate the app
 	 */ 
 	public class RateButton : MonoBehaviour {
 
 		//Enter your google play market URL here
 		public string marketURL = "market://details?id=com.cosmicgardenlabs.supernova";
 
-		// If true, only show this button when on mobile platform
+		// If true, only shows this button when on mobile platform
 		public bool onlyMobile = true;
 
 		// Until now it only supports google play

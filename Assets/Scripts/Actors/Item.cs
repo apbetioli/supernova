@@ -8,15 +8,15 @@ namespace Supernova {
 	 */ 
 	public abstract class Item : MonoBehaviour {
 
-		// It has a step that is the offset to move in the Y axis, each time the player touches the screen.
+		// It has a step that is the offset to move in the Y axis each time the player touches the screen.
 		public float step = 1f;
 
-		// The rotation velocity is constant and rotates this item
+		// The item constant rotation velocity
 		public float rotationVelocity = 0.2f;
 
 		protected Player player;
 
-		// A variable to control the movement in the Y axis
+		// Controls the movement in the Y axis
 		float targetPosition;
 
 		void Awake() {
@@ -49,7 +49,7 @@ namespace Supernova {
 		}
 
 		void OnTouch() {
-			//Every time a move is made, the targetPosition is updated
+			//Every time a touch happens the targetPosition is updated
 			if(!player.IsDead())
 				targetPosition = targetPosition - step;
 		}

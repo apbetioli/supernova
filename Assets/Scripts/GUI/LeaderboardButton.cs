@@ -5,11 +5,11 @@ using System.Collections;
 namespace Supernova {
 
 	/*
-	 * Opens the Google Play Leaderboard when pressed
+	 * Opens the Leaderboard when pressed
 	 */ 
 	public class LeaderboardButton : MonoBehaviour {
 
-		// If true, only show this button when on mobile platform
+		// If true, only shows this button when on mobile platform
 		public bool onlyMobile = true;
 
 		Leaderboard leaderboard;
@@ -17,7 +17,7 @@ namespace Supernova {
 		void Awake() {
 			leaderboard = GetComponent<Leaderboard>();
 			if(leaderboard == null) {
-				Debug.LogError("GooglePlayLeaderboard not found");
+				Debug.LogError("Leaderboard not found");
 				enabled = false;
 				return;
 			}

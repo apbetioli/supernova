@@ -4,7 +4,7 @@ using System.Collections;
 namespace Supernova {
 
 	/*
-	 * A planet is food for the star. It values one score point.
+	 * A planet is food for the star. It scores one point.
 	 */ 
 	public class Planet : Item {
 
