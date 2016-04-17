@@ -12,10 +12,10 @@ namespace Supernova {
 		// If true, only show this button when on mobile platform
 		public bool onlyMobile = true;
 
-		GooglePlayLeaderboard leaderboard;
+		Leaderboard leaderboard;
 
 		void Awake() {
-			leaderboard = GetComponent<GooglePlayLeaderboard>();
+			leaderboard = GetComponent<Leaderboard>();
 			if(leaderboard == null) {
 				Debug.LogError("GooglePlayLeaderboard not found");
 				enabled = false;

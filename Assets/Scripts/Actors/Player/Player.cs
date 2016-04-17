@@ -21,7 +21,8 @@ namespace Supernova {
 		PlayerHealth playerHealth; 		
 		PlayerScore playerScore; 		
 		PlayerMovement playerMovement; 	
-		Services services; 				
+		Leaderboard leaderboard; 		
+		Analytics analytics;
 
 		//Configures the timeout when the player is idle causing a missed event
 		public float idleTimeout = 1.5f;
@@ -35,15 +36,20 @@ namespace Supernova {
 			playerMovement = GetComponent<PlayerMovement>();
 			animator = GetComponent<Animator>();
 
-			//The services script is optional
-			services = GetComponent<Services>();
-			if(services == null)
-				Debug.LogWarning("Services not found");
+			//Optional
+
+			leaderboard = GetComponent<Leaderboard>();
+			if(leaderboard == null)
+				Debug.LogWarning("Leaderboard not found");
+
+			analytics = GetComponent<Analytics>();
+			if(analytics == null)
+				Debug.LogWarning("Analytics not found");
 		}
 
 		void Start() {
-			if(services != null)
-				services.Authenticate();
+			if(leaderboard != null)
+				leaderboard.Authenticate();
 		}
 
 		void Update () {
@@ -110,10 +116,10 @@ namespace Supernova {
 			playerScore.HandleHighscore();
 			animator.SetTrigger("Supernova");
 
-			if(services != null) {
-				services.Death(Score(), cause);
-				services.ReportScore(Score());
-			}
+			if(leaderboard != null)
+				leaderboard.ReportScore(Score());
+			if(analytics != null)
+				analytics.Death(Score(), cause);
 		}
 
 		// Adds one point of score, a new planet has been eaten.

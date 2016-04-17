@@ -4,12 +4,12 @@ using System.Collections;
 namespace Supernova {
 
 	/*
-	 * A planet is food for the star, when they touch the planet gives one score point and vanishes into the void.
+	 * A planet is food for the star. It values one score point.
 	 */ 
 	public class Planet : Item {
 
 		void OnTriggerEnter2D(Collider2D col) {
-			if(col.tag == "Player") {
+			if(col.tag != null && col.tag == "Player") {
 				player.AddScore();
 				Destroy(gameObject);
 			}

@@ -10,7 +10,7 @@ namespace Supernova {
 
 		void OnTriggerEnter2D(Collider2D col) {
 			// Except for the star when it becomes bigger at it's death
-			if(col.tag != "Player")
+			if(col.tag != null && col.tag != "Player")
 				Destroy(col.gameObject);
 		}
 	}
