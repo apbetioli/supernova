@@ -76,8 +76,10 @@
      <None Include="Assets\GooglePlayGames\Editor\Podfile.txt" />
      <None Include="Assets\GooglePlayGames\Editor\template-GameInfo.txt" />
      <None Include="Assets\GooglePlayGames\Editor\template-AndroidManifest.txt" />
+     <None Include="Assets\Supernova\Fonts\license.txt" />
      <None Include="Assets\Plugins\Android\MainLibProj\AndroidManifest.xml" />
      <None Include="Assets\GooglePlayGames\Editor\template-Constants.txt" />
+     <None Include="Assets\Supernova\Fonts\readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity5.0/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -85,13 +87,13 @@
  <HintPath>C:/Program Files/Unity5.0/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="AssetStoreTools">
- <HintPath>D:/supernova/Assets/AssetStoreTools/Editor/AssetStoreTools.dll</HintPath>
+ <HintPath>D:/Programacao/Unity/supernova/Assets/AssetStoreTools/Editor/AssetStoreTools.dll</HintPath>
  </Reference>
  <Reference Include="AssetStoreToolsExtra">
- <HintPath>D:/supernova/Assets/AssetStoreTools/Editor/AssetStoreToolsExtra.dll</HintPath>
+ <HintPath>D:/Programacao/Unity/supernova/Assets/AssetStoreTools/Editor/AssetStoreToolsExtra.dll</HintPath>
  </Reference>
  <Reference Include="JarResolverLib">
- <HintPath>D:/supernova/Assets/PlayServicesResolver/Editor/JarResolverLib.dll</HintPath>
+ <HintPath>D:/Programacao/Unity/supernova/Assets/PlayServicesResolver/Editor/JarResolverLib.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity5.0/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
