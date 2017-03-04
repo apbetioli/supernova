@@ -25,10 +25,6 @@ namespace Supernova {
 			gameObject.SetActive(onlyMobile ? Application.isMobilePlatform : true);		
 		}
 
-		void Start() {
-			leaderboard.Activate();
-		}
-
 		public void Open() {
 			leaderboard.Open();
 		}

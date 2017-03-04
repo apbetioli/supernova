@@ -1,9 +1,9 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{DE05930D-D46A-984C-A32A-AD9FEAC718E8}") = "supernova", "Assembly-CSharp.csproj", "{D75AF47D-6C04-F0A9-B4CC-09875A6B2D4B}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supernova", "Assembly-CSharp.csproj", "{3F5F1234-7C8C-11A1-DB80-794ABDBD3B31}"
 EndProject
-Project("{DE05930D-D46A-984C-A32A-AD9FEAC718E8}") = "supernova", "Assembly-CSharp-Editor.csproj", "{15FECE3C-EE00-8BDB-A887-899799670E11}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supernova", "Assembly-CSharp-Editor.csproj", "{B863DC35-E525-ED89-BF58-40057B886774}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,14 +11,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D75AF47D-6C04-F0A9-B4CC-09875A6B2D4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D75AF47D-6C04-F0A9-B4CC-09875A6B2D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D75AF47D-6C04-F0A9-B4CC-09875A6B2D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D75AF47D-6C04-F0A9-B4CC-09875A6B2D4B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{15FECE3C-EE00-8BDB-A887-899799670E11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{15FECE3C-EE00-8BDB-A887-899799670E11}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{15FECE3C-EE00-8BDB-A887-899799670E11}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15FECE3C-EE00-8BDB-A887-899799670E11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F5F1234-7C8C-11A1-DB80-794ABDBD3B31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F5F1234-7C8C-11A1-DB80-794ABDBD3B31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F5F1234-7C8C-11A1-DB80-794ABDBD3B31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F5F1234-7C8C-11A1-DB80-794ABDBD3B31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B863DC35-E525-ED89-BF58-40057B886774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B863DC35-E525-ED89-BF58-40057B886774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B863DC35-E525-ED89-BF58-40057B886774}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B863DC35-E525-ED89-BF58-40057B886774}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,5 +42,4 @@ Global
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
 	EndGlobalSection
-
 EndGlobal

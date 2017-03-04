@@ -13,6 +13,7 @@
 //  See the License for the specific language governing permissions and
 //    limitations under the License.
 // </copyright>
+
 #if UNITY_ANDROID
 
 namespace GooglePlayGames.Editor
@@ -106,6 +107,14 @@ namespace GooglePlayGames.Editor
                 // check the bundle id and set it if needed.
                 CheckBundleId();
 
+                Google.VersionHandler.InvokeInstanceMethod(
+                    GPGSDependencies.svcSupport, "ClearDependencies", null);
+                GPGSDependencies.RegisterDependencies();
+                Google.VersionHandler.InvokeStaticMethod(
+                    Google.VersionHandler.FindClass(
+                        "Google.JarResolver", "GooglePlayServices.PlayServicesResolver"),
+                    "MenuResolve", null);
+
                 return PerformSetup(
                     clientId,
                     GPGSProjectSettings.Instance.Get(GPGSUtil.APPIDKEY),
@@ -178,7 +187,7 @@ namespace GooglePlayGames.Editor
             }
 
             // Generate AndroidManifest.xml
-            GPGSUtil.GenerateAndroidManifest(requiresGooglePlus);
+            GPGSUtil.GenerateAndroidManifest();
 
             // refresh assets, and we're done
             AssetDatabase.Refresh();
@@ -194,8 +203,8 @@ namespace GooglePlayGames.Editor
         public void OnEnable()
         {
             GPGSProjectSettings settings = GPGSProjectSettings.Instance;
-            mConstantDirectory = settings.Get("ConstDir", mConstantDirectory);
-            mClassName = settings.Get(GPGSUtil.CLASSNAMEKEY);
+            mConstantDirectory = settings.Get(GPGSUtil.CLASSDIRECTORYKEY, mConstantDirectory);
+            mClassName = settings.Get(GPGSUtil.CLASSNAMEKEY, mClassName);
             mConfigData = settings.Get(GPGSUtil.ANDROIDRESOURCEKEY);
             mWebClientId = settings.Get(GPGSUtil.WEBCLIENTIDKEY);
             mRequiresGooglePlus = settings.GetBool(GPGSUtil.REQUIREGOOGLEPLUSKEY, false);
@@ -210,7 +219,7 @@ namespace GooglePlayGames.Editor
             GUILayout.BeginVertical();
 
             GUIStyle link = new GUIStyle(GUI.skin.label);
-            link.normal.textColor = new Color(.7f, .7f, 1f);
+            link.normal.textColor = new Color(0f, 0f, 1f);
 
             GUILayout.Space(10);
             GUILayout.Label(GPGSStrings.AndroidSetup.Blurb);
@@ -295,7 +304,7 @@ namespace GooglePlayGames.Editor
 
             if (GUILayout.Button("Cancel", GUILayout.Width(100)))
             {
-                this.Close();
+                Close();
             }
 
             GUILayout.FlexibleSpace();
@@ -319,7 +328,7 @@ namespace GooglePlayGames.Editor
                     GPGSStrings.Ok);
 
                 GPGSProjectSettings.Instance.Set(GPGSUtil.ANDROIDSETUPDONEKEY, true);
-                this.Close();
+                Close();
             }
             else
             {

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-#if UNITY_5_3
+#if UNITY_5_3_OR_NEWER
 using UnityEngine.SceneManagement;
 #endif
 
@@ -80,7 +80,7 @@ namespace Supernova {
 
 		// Loads the scene
 		public void Play() {
-			#if UNITY_5_3
+			#if UNITY_5_3_OR_NEWER
 				SceneManager.LoadScene("Main");
 			#else
 				Application.LoadLevel("Main");
